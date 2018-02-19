@@ -3,7 +3,12 @@ import javax.swing.SwingUtilities;
 
 public class Input extends JFrame {
 	
-    public Input() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public Input() {
        setTitle("Schedule.exe");
        setSize(1800, 1800);
        setLocationRelativeTo(null);
