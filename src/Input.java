@@ -18,6 +18,7 @@ public class Input extends JFrame {
     public static void main(String[] args) {
     	Input ex = new Input();
        ex.setVisible(true);
+       System.out.println("This file is changed");
     }
 
 }
