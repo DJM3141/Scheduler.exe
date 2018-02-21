@@ -1,2 +1,0 @@
-INDEX VERSION 1.130+C:\Users\Daniel\Desktop\Team Software Project\Schedule.exe\.metadata\.plugins\org.eclipse.jdt.core
-3666469276.index
