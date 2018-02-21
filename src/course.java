@@ -12,9 +12,10 @@ public class course {
 	private String courseNumber;	//Course Number: IE 14046
 	private String days;			//Day(s) course occurs(MTWRF): IE MWF
 	private String startTime;		//Time course begins(24hr): IE 13:05
-	private String endTime;			//Time course ends(24hr):	IE 13:55
+	private String endTime;			//Time course ends(24hr): IE 13:55
+	private int creditAmount;		//Course credit value: IE 3
 	private courseType type;		//Type of course(full or track A/B)
-	private boolean priority;		//Is course needed this semester(Default True)
+	private boolean priority;		//Is course needed this semester(Default False)
 	//End Variables
 	
 	//---------------------------------------------------------------------------------------------------------
@@ -27,17 +28,19 @@ public class course {
 		days = null;
 		startTime = null;
 		endTime = null;
+		creditAmount = 0;
 		type = null;
-		priority = true;
+		priority = false;
 	}
 	
-	public course(String dept, String lv, String crn, String d, String stTime, String edTime, courseType typ, boolean pri) {
+	public course(String dept, String lv, String crn, String d, String stTime, String edTime, int credAmt, courseType typ, boolean pri) {
 		department = dept;
 		level = lv;
 		courseNumber = crn;
 		days = d;
 		startTime = stTime;
 		endTime = edTime;
+		creditAmount = credAmt;
 		type = typ;
 		priority = pri;
 	}
@@ -68,6 +71,14 @@ public class course {
 	
 	public void setEndTime(String edTime) {
 		endTime = edTime;
+	}
+	
+	public void setCreditAmount(String credAmt) {
+		creditAmount = Integer.parseInt(credAmt);
+	}
+	
+	public void setCreditAmount(int credAmt) {
+		creditAmount = credAmt;
 	}
 	
 	public void setType(courseType typ) {
@@ -104,6 +115,10 @@ public class course {
 	
 	public String getEndTime() {
 		return endTime;
+	}
+	
+	public int getCreditAmount() {
+		return creditAmount;
 	}
 	
 	public courseType getType() {
