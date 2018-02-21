@@ -2,11 +2,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class Input extends JFrame {
-	
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 
 	public Input() {
        setTitle("Schedule.exe");
