@@ -95,6 +95,7 @@ public class testing {
 		f.add(CreditHours1L);
 		f.add(Priority1LB);
 		f.add(Priority1L);
+		
 
 		// Class 2
 		JLabel Class2 = new JLabel();
@@ -781,14 +782,14 @@ public class testing {
 		StartTimeEL.setText("Start Time :");
 		StartTimeEL.setBounds(690, 750, 200, 100);
 		JLabel StartTimeELE = new JLabel();
-		StartTimeELE.setText("12:00");
+		StartTimeELE.setText("1305");
 		StartTimeELE.setBounds(760, 750, 200, 100);
 
 		JLabel EndTimeEL = new JLabel();
 		EndTimeEL.setText("EndTime :");
 		EndTimeEL.setBounds(840, 750, 200, 100);
 		JLabel EndTimeELE = new JLabel();
-		EndTimeELE.setText("13:00");
+		EndTimeELE.setText("1355");
 		EndTimeELE.setBounds(900, 750, 200, 100);
 
 		JLabel CreditHoursEL = new JLabel();
@@ -841,7 +842,119 @@ public class testing {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				StrtLabel.setText("Eat a dick");
+				String semester = Semester.getText();
+				System.out.println(semester);
+				//Class 1 inputs
+				String Dept1 = Dept1LB.getText();
+				String Level1 = Level1LB.getText();
+				String Crn1 = Crn1LB.getText();
+				String Days1 = Days1LB.getText();
+				String StTime1 = StartTime1LB.getText();
+				String EnTime1 = EndTime1LB.getText();
+				String CreditHours1 = CreditHours1LB.getText();
+				String Priority1 = Priority1LB.getText();
+				
+				// Verify outputs
+				System.out.println(Dept1);
+				System.out.println(Level1);
+				System.out.println(Crn1);
+				System.out.println(Days1);
+				System.out.println(StTime1);
+				System.out.println(EnTime1);
+				System.out.println(CreditHours1);
+				System.out.println(Priority1);
+				
+				//Class 2 inputs
+				String Dept2 = Dept2LB.getText();
+				String Level2 = Level2LB.getText();
+				String Crn2 = Crn2LB.getText();
+				String Days2 = Days2LB.getText();
+				String StTime2 = StartTime2LB.getText();
+				String EnTime2 = EndTime2LB.getText();
+				String CreditHours2 = CreditHours2LB.getText();
+				String Priority2 = Priority2LB.getText();
 
+				//Class 3 inputs
+				String Dept3 = Dept3LB.getText();
+				String Level3 = Level3LB.getText();
+				String Crn3 = Crn3LB.getText();
+				String Days3 = Days3LB.getText();
+				String StTime3 = StartTime3LB.getText();
+				String EnTime3 = EndTime3LB.getText();
+				String CreditHours3 = CreditHours3LB.getText();
+				String Priority3 = Priority3LB.getText();
+				
+				//Class 4 inputs
+				String Dept4 = Dept4LB.getText();
+				String Level4 = Level4LB.getText();
+				String Crn4 = Crn4LB.getText();
+				String Days4 = Days4LB.getText();
+				String StTime4 = StartTime4LB.getText();
+				String EnTime4 = EndTime4LB.getText();
+				String CreditHours4 = CreditHours4LB.getText();
+				String Priority4 = Priority4LB.getText();
+				
+				//Class 5 inputs
+				String Dept5 = Dept5LB.getText();
+				String Level5 = Level5LB.getText();
+				String Crn5 = Crn5LB.getText();
+				String Days5 = Days5LB.getText();
+				String StTime5 = StartTime5LB.getText();
+				String EnTime5 = EndTime5LB.getText();
+				String CreditHours5 = CreditHours5LB.getText();
+				String Priority5 = Priority5LB.getText();
+				
+				//Class 6 inputs
+				String Dept6 = Dept6LB.getText();
+				String Level6 = Level6LB.getText();
+				String Crn6 = Crn6LB.getText();
+				String Days6 = Days6LB.getText();
+				String StTime6 = StartTime6LB.getText();
+				String EnTime6 = EndTime6LB.getText();
+				String CreditHours6 = CreditHours6LB.getText();
+				String Priority6 = Priority6LB.getText();
+				
+				//Class 7 inputs
+				String Dept7 = Dept7LB.getText();
+				String Level7 = Level7LB.getText();
+				String Crn7 = Crn7LB.getText();
+				String Days7 = Days7LB.getText();
+				String StTime7 = StartTime7LB.getText();
+				String EnTime7 = EndTime7LB.getText();
+				String CreditHours7 = CreditHours7LB.getText();
+				String Priority7 = Priority7LB.getText();
+				
+				//Class 8 inputs
+				String Dept8 = Dept8LB.getText();
+				String Level8 = Level8LB.getText();
+				String Crn8 = Crn8LB.getText();
+				String Days8 = Days8LB.getText();
+				String StTime8 = StartTime8LB.getText();
+				String EnTime8 = EndTime8LB.getText();
+				String CreditHours8 = CreditHours8LB.getText();
+				String Priority8 = Priority8LB.getText();
+				
+				//Class 9 inputs
+				String Dept9 = Dept9LB.getText();
+				String Level9 = Level9LB.getText();
+				String Crn9 = Crn9LB.getText();
+				String Days9 = Days9LB.getText();
+				String StTime9 = StartTime9LB.getText();
+				String EnTime9 = EndTime9LB.getText();
+				String CreditHours9 = CreditHours9LB.getText();
+				String Priority9 = Priority9LB.getText();
+				
+				//Class 10 inputs
+				String Dept10 = Dept10LB.getText();
+				String Level10 = Level10LB.getText();
+				String Crn10 = Crn10LB.getText();
+				String Days10 = Days10LB.getText();
+				String StTime10 = StartTime10LB.getText();
+				String EnTime10 = EndTime10LB.getText();
+				String CreditHours10 = CreditHours10LB.getText();
+				String Priority10 = Priority10LB.getText();
+				
+				
 			}
 		});
 
