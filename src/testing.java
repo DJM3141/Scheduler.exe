@@ -71,6 +71,12 @@ public class testing {
 		CreditHours1L.setText("Credit Hours :");
 		CreditHours1L.setBounds(990, 10, 200, 100);
 		
+		JTextField Priority1LB= new JTextField();
+		Priority1LB.setBounds(1225, 50, 70, 30);
+		JLabel Priority1L = new JLabel();		
+		Priority1L.setText("Priority? :");
+		Priority1L.setBounds(1160, 10, 200, 100);
+		
 				//class 1 add to frame
 		f.add(Class1);
 		f.add(Dept1LB);
@@ -87,6 +93,8 @@ public class testing {
 		f.add(EndTime1L);
 		f.add(CreditHours1LB);
 		f.add(CreditHours1L);
+		f.add(Priority1LB);
+		f.add(Priority1L);
 
 		// Class 2
 	JLabel Class2 = new JLabel();		
@@ -135,6 +143,12 @@ public class testing {
 		CreditHours2L.setText("Credit Hours :");
 		CreditHours2L.setBounds(990, 50, 200, 100);
 		
+		JTextField Priority2LB= new JTextField();
+		Priority2LB.setBounds(1225, 90, 70, 30);
+		JLabel Priority2L = new JLabel();		
+		Priority2L.setText("Priority? :");
+		Priority2L.setBounds(1160, 50, 200, 100);
+		
 				//class 2 add to frame
 		f.add(Class2);
 		f.add(Dept2LB);
@@ -151,6 +165,8 @@ public class testing {
 		f.add(EndTime2L);
 		f.add(CreditHours2LB);
 		f.add(CreditHours2L);
+		f.add(Priority2LB);
+		f.add(Priority2L);
 		
 					//add to frame
 		f.add(StrtLabel);
