@@ -1,5 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -7,6 +9,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 public class DraftInterface {
+	
+	// One instance of the courses that have been added during the user session
+	public static ArrayList<course> currentCourses = new ArrayList<course>();
+	
+	public static ArrayList<course> getCourseList() {
+		return currentCourses;
+	}
+	
 	DraftInterface() {
 		JFrame f = new JFrame("Scheduler.exe");
 

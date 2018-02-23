@@ -1,5 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,6 +10,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.JCheckBox;
 
 public class AddInterface {
+	
 	AddInterface() {
 		JFrame f = new JFrame("AddFrame");
 
@@ -70,6 +73,10 @@ public class AddInterface {
 		// Submit button
 		JButton Submit = new JButton("Submit");
 		Submit.setBounds(10, 350, 140, 40);
+		
+		// Goes to the Load PAge
+		JButton CurrentListing = new JButton("See Current Classes");
+		CurrentListing.setBounds(10, 400, 140, 40);
 
 		// Submit label which will show event after button clicked
 		JLabel SubmitLabel = new JLabel();
@@ -89,6 +96,7 @@ public class AddInterface {
 		f.add(SubmitLabel);
 		f.add(Submit);
 		f.add(PriorityCheck);
+		f.add(CurrentListing);
 		f.setSize(800, 800);
 		f.setLayout(null);
 		f.setVisible(true);
@@ -137,12 +145,30 @@ public class AddInterface {
 
 			}
 		});
-		// Priority Check listener
+		// Submit listener
 		Submit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Submit selected");
+				
+				// Adds a new course to the list of added courses
+				int convertedCreditNumber = Integer.parseInt(CreditHoursLB.getText());
+				course temp = new course(DeptLB.getText(), LevelLB.getText(), convertedCreditNumber, PriorityCheck.isSelected() );
+				DraftInterface.getCourseList().add(temp);
+
+			}
+		});
+		// CurrentListing listener
+		CurrentListing.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame AddFrame = new JFrame("LoadFrame");
+				AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				AddFrame.getContentPane().add(AddFrame, new LoadFrame());
+				AddFrame.setSize(800, 800);
+				AddFrame.pack();
+				AddFrame.setVisible(true);
 
 			}
 		});

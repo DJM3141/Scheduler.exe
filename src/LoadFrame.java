@@ -1,8 +1,11 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -16,6 +19,18 @@ public class LoadFrame {
 		ClassInfo.setText("CS3141");
 		ClassInfo.setBounds(350, 50, 500, 200);
 
+		// Display to show the current courses entered in this instance of the app
+		JTextArea CurrentCourseList = new JTextArea();
+		ArrayList<course> temp = DraftInterface.getCourseList();
+		String courseList = "";
+		for(int i = 0; i < temp.size(); i++) {
+			courseList = courseList + temp.get(i).getDepartment() + temp.get(i).getLevel() + "     " 
+					+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority() + "\n";
+		}
+		CurrentCourseList.setText(courseList);
+		CurrentCourseList.setBounds(100, 200, 300, 300);
+		CurrentCourseList.setEditable(false);
+		
 		// Add button
 		JButton Add = new JButton("Add");
 		Add.setBounds(200, 650, 140, 40);
@@ -48,6 +63,7 @@ public class LoadFrame {
 		f.add(Save);
 		f.add(DisplayLabel);
 		f.add(Display);
+		f.add(CurrentCourseList);
 		f.setSize(800, 800);
 		f.setLayout(null);
 		f.setVisible(true);
