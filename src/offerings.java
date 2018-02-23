@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class offerings extends course{
 	//Variables
 	private String courseNumber;		//Course Number: IE 14046
-	private String startTime;			//Time course begins(24hr): IE 1305
-	private String endTime;				//Time course ends(24hr): IE 1355
+	private int startTime;				//Time course begins(24hr): IE 1305
+	private int endTime;				//Time course ends(24hr): IE 1355
 	private courseType type;			//Type of course(full or track A/B)
 	
 	//List of days the course runs, index 0 = Sunday, continues in chronological order. True = ran on this day.
@@ -16,8 +16,8 @@ public class offerings extends course{
 	//Constructors
 	public offerings() {
 		courseNumber = null;
-		startTime = null;
-		endTime = null;
+		startTime = 0;
+		endTime = 0;
 		type = null;
 	}
 	//End Constructors
@@ -46,10 +46,18 @@ public class offerings extends course{
 	}
 	
 	public void setStartTime(String stTime) {
+		startTime = Integer.parseInt(stTime);
+	}
+	
+	public void setStartTime(int stTime) {
 		startTime = stTime;
 	}
 	
 	public void setEndTime(String edTime) {
+		endTime = Integer.parseInt(edTime);
+	}
+	
+	public void setEndTime(int edTime) {
 		endTime = edTime;
 	}
 	
@@ -73,11 +81,11 @@ public class offerings extends course{
 		return days.get(day);
 	}
 	
-	public String getStartTime() {
+	public int getStartTime() {
 		return startTime;
 	}
 	
-	public String getEndTime() {
+	public int getEndTime() {
 		return endTime;
 	}
 	
