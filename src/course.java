@@ -11,7 +11,7 @@ public class course {
 	//Variables
 	private String department;		//Course department: IE CS
 	private String level;			//Course level: IE 3141
-	private int creditAmount;		//Course credit value: IE 3
+	private double creditAmount;		//Course credit value: IE 3
 	private boolean priority;		//Is course needed this semester(Default False)
 	private ArrayList<offerings> offeringsList = new ArrayList<offerings>();	//List of course offerings
 	//End Variables
@@ -50,10 +50,10 @@ public class course {
 	}
 	
 	public void setCreditAmount(String credAmt) {
-		creditAmount = Integer.parseInt(credAmt);
+		creditAmount = Double.parseDouble(credAmt);
 	}
 	
-	public void setCreditAmount(int credAmt) {
+	public void setCreditAmount(double credAmt) {
 		creditAmount = credAmt;
 	}
 	
@@ -73,12 +73,21 @@ public class course {
 		return level;
 	}
 	
-	public int getCreditAmount() {
+	public double getCreditAmount() {
 		return creditAmount;
 	}
 	
 	public boolean getPriority() {
 		return priority;
+	}
+	
+	/**
+	 * returns the offering at index offering
+	 * @param offering
+	 * @return
+	 */
+	public offerings getOffering(int offering) {
+		return offeringsList.get(offering);
 	}
 	//End Getters
 }
