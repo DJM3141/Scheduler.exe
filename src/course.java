@@ -45,10 +45,6 @@ public class course {
 		level = lv;
 	}
 	
-	public void addOffering(String crn, String d, String stTime, String edTime, courseType typ) {
-		offeringsList.add(new offerings(crn, d, stTime, edTime, typ));
-	}
-	
 	public void setCreditAmount(String credAmt) {
 		creditAmount = Integer.parseInt(credAmt);
 	}

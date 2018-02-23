@@ -1,11 +1,14 @@
+import java.util.ArrayList;
 
 public class offerings extends course{
 	//Variables
-	private String courseNumber;	//Course Number: IE 14046
-	private String days;			//Day(s) course occurs(MTWRF): IE MWF
-	private String startTime;		//Time course begins(24hr): IE 1305
-	private String endTime;			//Time course ends(24hr): IE 1355
-	private courseType type;		//Type of course(full or track A/B)
+	private String courseNumber;		//Course Number: IE 14046
+	private String startTime;			//Time course begins(24hr): IE 1305
+	private String endTime;				//Time course ends(24hr): IE 1355
+	private courseType type;			//Type of course(full or track A/B)
+	
+	//List of days the course runs, index 0 = Sunday, continues in chronological order. True = ran on this day.
+	private ArrayList<Boolean> days = new ArrayList<Boolean>(6);
 	//End Variables
 	
 	//---------------------------------------------------------------------------------------------------------
@@ -13,18 +16,9 @@ public class offerings extends course{
 	//Constructors
 	public offerings() {
 		courseNumber = null;
-		days = null;
 		startTime = null;
 		endTime = null;
 		type = null;
-	}
-	
-	public offerings(String crn, String d, String stTime, String edTime, courseType typ) {
-		courseNumber = crn;
-		days = d;
-		startTime = stTime;
-		endTime = edTime;
-		type = typ;
 	}
 	//End Constructors
 	
@@ -35,8 +29,20 @@ public class offerings extends course{
 		courseNumber = crn;
 	}
 	
-	public void setDays(String d) {
-		days = d;
+	/**
+	 * @param day
+	 * Changes the selected day index to true.
+	 */
+	public void addDay(int day) {
+		days.set(day, true);
+	}
+	
+	/**
+	 * @param day
+	 * Changes the selected day index to false.
+	 */
+	public void removeDay(int day) {
+		days.set(day, false);
 	}
 	
 	public void setStartTime(String stTime) {
@@ -59,8 +65,12 @@ public class offerings extends course{
 		return courseNumber;
 	}
 	
-	public String getDays() {
-		return days;
+	/**
+	 * @return day value
+	 * Retrieve the day's value
+	 */
+	public boolean getDay(int day) {
+		return days.get(day);
 	}
 	
 	public String getStartTime() {
