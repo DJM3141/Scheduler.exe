@@ -1,5 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -91,14 +94,22 @@ public class LoadFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				SaveLabel.setText("Saving... Please Wait");
-				System.out.println("Save Clicked");
-				/*
-				 * JFrame SaveFrame = new JFrame ("SaveFrame");
-				 * SaveFrame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-				 * SaveFrame.getContentPane().add (SaveFrame, new SaveInterface());
-				 * SaveFrame.setSize(1500, 1500); SaveFrame.pack(); SaveFrame.setVisible (true);
-				 */
+				SaveLabel.setText("File Saved");
+				
+				// Prints the File in the Eclipse Project Directory
+				PrintWriter pw = null;
+				try {
+					pw = new PrintWriter(new File("Class List.txt"));
+					ArrayList<course> temp = DraftInterface.getCourseList();
+					for(int i = 0; i < temp.size(); i++) {
+						pw.println(temp.get(i).getDepartment() + temp.get(i).getLevel() + "     " 
+								+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority());
+					}
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				} finally {
+					pw.close();
+				}
 			}
 		});
 
