@@ -26,11 +26,12 @@ public class course {
 		priority = false;
 	}
 	
-	public course(String dept, String lv, int credAmt, boolean pri) {
+	public course(String dept, String lv, int credAmt, boolean pri, ArrayList<offerings> OfferingsList) {
 		department = dept;
 		level = lv;
 		creditAmount = credAmt;
 		priority = pri;
+		offeringsList = OfferingsList;
 	}
 	//End Constructors
 	

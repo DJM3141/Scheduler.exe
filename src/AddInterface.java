@@ -118,6 +118,21 @@ public class AddInterface {
 
 			}
 		});
+		
+		// Offerings Button listener
+		Offerings.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame OfferingsFrame = new JFrame("OfferingsFrame");
+				OfferingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				OfferingsFrame.getContentPane().add(OfferingsFrame, new OfferingsInterface());
+				OfferingsFrame.setSize(800, 800);
+				OfferingsFrame.pack();
+				OfferingsFrame.setVisible(true);
+
+			}
+		});
 
 		// Display Button listener
 		Display.addActionListener(new ActionListener() {
@@ -153,7 +168,7 @@ public class AddInterface {
 				
 				// Adds a new course to the list of added courses
 				int convertedCreditNumber = Integer.parseInt(CreditHoursLB.getText());
-				course temp = new course(DeptLB.getText(), LevelLB.getText(), convertedCreditNumber, PriorityCheck.isSelected() );
+				course temp = new course(DeptLB.getText(), LevelLB.getText(), convertedCreditNumber, PriorityCheck.isSelected(), null );
 				DraftInterface.getCourseList().add(temp);
 
 			}
