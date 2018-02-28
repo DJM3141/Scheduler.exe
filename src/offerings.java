@@ -15,6 +15,7 @@ public class offerings extends course{
 		
 	//Constructors
 	public offerings() {
+		super();
 		courseNumber = null;
 		startTime = 0;
 		endTime = 0;

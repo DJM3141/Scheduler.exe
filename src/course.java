@@ -9,11 +9,13 @@ import java.util.ArrayList;
 public class course {
 	
 	//Variables
-	private String department;		//Course department: IE CS
-	private String level;			//Course level: IE 3141
+	private String department;			//Course department: IE CS
+	private String level;				//Course level: IE 3141
 	private double creditAmount;		//Course credit value: IE 3
-	private boolean priority;		//Is course needed this semester(Default False)
+	private boolean priority;			//Is course needed this semester(Default False)
 	private ArrayList<offerings> offeringsList = new ArrayList<offerings>();	//List of course offerings
+	
+	private int scheduleIndex;			//Used in the scheduling process to track offering location
 	//End Variables
 	
 	//---------------------------------------------------------------------------------------------------------
@@ -24,14 +26,15 @@ public class course {
 		level = null;
 		creditAmount = 0;
 		priority = false;
+		scheduleIndex = 0;
 	}
 	
-	public course(String dept, String lv, int credAmt, boolean pri, ArrayList<offerings> OfferingsList) {
+	public course(String dept, String lv, int credAmt, boolean pri) {
 		department = dept;
 		level = lv;
 		creditAmount = credAmt;
 		priority = pri;
-		offeringsList = OfferingsList;
+		scheduleIndex = 0;
 	}
 	//End Constructors
 	
@@ -61,6 +64,14 @@ public class course {
 	public void setPriority(boolean pri) {
 		priority = pri;
 	}
+	
+	public void incIndex() {
+		if (scheduleIndex == offeringsList.size())
+			scheduleIndex = 0;
+		else
+			scheduleIndex++;
+		
+	}
 	//End Setters
 	
 	//---------------------------------------------------------------------------------------------------------
@@ -82,6 +93,10 @@ public class course {
 		return priority;
 	}
 	
+	public int amountOfOfferings() {
+		return offeringsList.size();
+	}
+	
 	/**
 	 * returns the offering at index offering
 	 * @param offering
@@ -89,6 +104,17 @@ public class course {
 	 */
 	public offerings getOffering(int offering) {
 		return offeringsList.get(offering);
+	}
+	
+	public int getIndex() {
+		return scheduleIndex;
+	}
+	
+	public boolean indexIsLast() {
+		if (scheduleIndex == offeringsList.size())
+			return true;
+		else
+			return false;
 	}
 	//End Getters
 }
