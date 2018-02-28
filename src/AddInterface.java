@@ -168,7 +168,7 @@ public class AddInterface {
 				
 				// Adds a new course to the list of added courses
 				int convertedCreditNumber = Integer.parseInt(CreditHoursLB.getText());
-				course temp = new course(DeptLB.getText(), LevelLB.getText(), convertedCreditNumber, PriorityCheck.isSelected(), null );
+				course temp = new course(DeptLB.getText(), LevelLB.getText(), convertedCreditNumber, PriorityCheck.isSelected());
 				DraftInterface.getCourseList().add(temp);
 
 			}
