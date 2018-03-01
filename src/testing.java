@@ -1,9 +1,13 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -148,7 +152,25 @@ public class testing {
 		f.add(CreditHoursELE);
 		f.add(PriorityEL);
 		f.add(PriorityELE);
+		
+		
+		
+		//Radio Button Test
+		 JPanel radioButtonPanel = new JPanel();
+		    JRadioButton append = new JRadioButton("append");
+		    JRadioButton build = new JRadioButton("x.x.1");
+		    build.setSelected(true); //sets this button as selected on startup
+		    JRadioButton small = new JRadioButton("x.1.x");
+		    JRadioButton huge = new JRadioButton("1.x.x");
 
+		    // Create the button group to keep only one selected.
+		    JRadioButton r1=new JRadioButton("A) Male");    
+		    JRadioButton r2=new JRadioButton("B) Female");    
+		    r1.setBounds(75,50,100,30);    
+		    r2.setBounds(75,100,100,30);    
+		    ButtonGroup bg=new ButtonGroup();    
+		    bg.add(r1);bg.add(r2);    
+		    f.add(r1);f.add(r2);      
 		// Main add to frame
 		f.add(StrtLabel);
 		f.add(Semester);
@@ -158,6 +180,7 @@ public class testing {
 		f.setLayout(null);
 		f.setVisible(true);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 
 		// action listener
 		Start.addActionListener(new ActionListener() {

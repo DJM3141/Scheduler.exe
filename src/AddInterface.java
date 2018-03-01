@@ -10,7 +10,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.JCheckBox;
 
 public class AddInterface {
-	
+
 	AddInterface() {
 		JFrame f = new JFrame("AddFrame");
 
@@ -24,31 +24,46 @@ public class AddInterface {
 		JLabel DeptL = new JLabel();
 		DeptL.setText("Dept :");
 		DeptL.setBounds(10, 50, 200, 100);
+		// Dept Example Label
+		JLabel DeptEx = new JLabel();
+		DeptEx.setText("Example: CS");
+		DeptEx.setBounds(170, 50, 200, 100);
 
 		JTextField LevelLB = new JTextField();
 		LevelLB.setBounds(60, 140, 80, 30);
 		JLabel LevelL = new JLabel();
 		LevelL.setText("Level :");
 		LevelL.setBounds(10, 100, 200, 100);
+		// Level Example Label
+		JLabel LevelEx = new JLabel();
+		LevelEx.setText("Example: 3141");
+		LevelEx.setBounds(170, 100, 200, 100);
 
 		JTextField CreditHoursLB = new JTextField();
 		CreditHoursLB.setBounds(60, 190, 80, 30);
 		JLabel CreditHoursL = new JLabel();
 		CreditHoursL.setText("Credits:");
 		CreditHoursL.setBounds(10, 150, 200, 100);
+		// Credit Example Label
+		JLabel CreditEx = new JLabel();
+		CreditEx.setText("Example: 3");
+		CreditEx.setBounds(170, 150, 200, 100);
 
 		// class add to frame
 		f.add(Class);
 		f.add(DeptLB);
+		f.add(DeptEx);
 		f.add(DeptL);
 		f.add(LevelLB);
+		f.add(LevelEx);
 		f.add(LevelL);
 		f.add(CreditHoursLB);
+		f.add(CreditEx);
 		f.add(CreditHoursL);
 
 		// Add Another button
 		JButton Add = new JButton("Add Another");
-		Add.setBounds(10, 650, 140, 40);
+		Add.setBounds(10, 450, 160, 40);
 
 		// Add label which will show event after button clicked
 		JLabel AddLabel = new JLabel();
@@ -56,7 +71,7 @@ public class AddInterface {
 
 		// Display button
 		JButton Display = new JButton("Display");
-		Display.setBounds(10, 700, 140, 40);
+		Display.setBounds(10, 500, 160, 40);
 
 		// Display label which will show event after button clicked
 		JLabel DisplayLabel = new JLabel();
@@ -64,7 +79,7 @@ public class AddInterface {
 
 		// Offerings button
 		JButton Offerings = new JButton("Offerings");
-		Offerings.setBounds(10, 300, 140, 40);
+		Offerings.setBounds(10, 300, 160, 40);
 
 		// Offerings label which will show event after button clicked
 		JLabel OfferingsLabel = new JLabel();
@@ -72,11 +87,11 @@ public class AddInterface {
 
 		// Submit button
 		JButton Submit = new JButton("Submit");
-		Submit.setBounds(10, 350, 140, 40);
-		
+		Submit.setBounds(10, 350, 160, 40);
+
 		// Goes to the Load PAge
 		JButton CurrentListing = new JButton("See Current Classes");
-		CurrentListing.setBounds(10, 400, 140, 40);
+		CurrentListing.setBounds(10, 400, 160, 40);
 
 		// Submit label which will show event after button clicked
 		JLabel SubmitLabel = new JLabel();
@@ -118,7 +133,7 @@ public class AddInterface {
 
 			}
 		});
-		
+
 		// Offerings Button listener
 		Offerings.addActionListener(new ActionListener() {
 
@@ -165,10 +180,11 @@ public class AddInterface {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				// Adds a new course to the list of added courses
 				int convertedCreditNumber = Integer.parseInt(CreditHoursLB.getText());
-				course temp = new course(DeptLB.getText(), LevelLB.getText(), convertedCreditNumber, PriorityCheck.isSelected());
+				course temp = new course(DeptLB.getText(), LevelLB.getText(), convertedCreditNumber,
+						PriorityCheck.isSelected());
 				DraftInterface.getCourseList().add(temp);
 
 			}

@@ -19,8 +19,8 @@ public class LoadFrame {
 		// Classes already added Text
 		// May Need multiple for all info
 		JLabel ClassInfo = new JLabel();
-		ClassInfo.setText("CS3141");
-		ClassInfo.setBounds(350, 50, 500, 200);
+		ClassInfo.setText("Classes Added");
+		ClassInfo.setBounds(335, 50, 500, 200);
 
 		// Display to show the current courses entered in this instance of the app
 		JTextArea CurrentCourseList = new JTextArea();
@@ -31,12 +31,12 @@ public class LoadFrame {
 					+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority() + "\n";
 		}
 		CurrentCourseList.setText(courseList);
-		CurrentCourseList.setBounds(100, 200, 300, 300);
+		CurrentCourseList.setBounds(225, 200, 300, 300);
 		CurrentCourseList.setEditable(false);
 		
 		// Add button
 		JButton Add = new JButton("Add");
-		Add.setBounds(200, 650, 140, 40);
+		Add.setBounds(200, 550, 140, 40);
 
 		// Add label which will show event after button clicked
 		JLabel AddLabel = new JLabel();
@@ -44,7 +44,7 @@ public class LoadFrame {
 
 		// Save button
 		JButton Save = new JButton("Save");
-		Save.setBounds(400, 650, 140, 40);
+		Save.setBounds(400, 550, 140, 40);
 
 		// Save label which will show event after button clicked
 		JLabel SaveLabel = new JLabel();
@@ -52,7 +52,7 @@ public class LoadFrame {
 
 		// Display button
 		JButton Display = new JButton("Display");
-		Display.setBounds(300, 700, 140, 40);
+		Display.setBounds(300, 600, 140, 40);
 
 		// Display label which will show event after button clicked
 		JLabel DisplayLabel = new JLabel();
