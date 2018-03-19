@@ -2,6 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,7 +14,8 @@ public class AddInterface {
 
 	AddInterface() {
 		JFrame f = new JFrame("AddFrame");
-
+		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
+		
 		// Class
 		JLabel Class = new JLabel();
 		Class.setText("New Class");
@@ -99,6 +101,7 @@ public class AddInterface {
 
 		// Checkbox
 		JCheckBox PriorityCheck = new JCheckBox("Priority?");
+		PriorityCheck.setOpaque(false);
 		PriorityCheck.setBounds(10, 220, 100, 30);
 
 		// Main add to frame

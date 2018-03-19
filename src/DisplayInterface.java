@@ -1,5 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -9,7 +11,8 @@ import javax.swing.SwingUtilities;
 public class DisplayInterface {
 	DisplayInterface() {
 		JFrame f = new JFrame("DisplayInterface");
-
+		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
+		
 		// Credit max Text
 		JLabel CreditMax = new JLabel();
 		CreditMax.setText("Enter desired Max credits");

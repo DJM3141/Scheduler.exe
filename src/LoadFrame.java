@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,6 +16,7 @@ import javax.swing.SwingUtilities;
 public class LoadFrame {
 	LoadFrame() {
 		JFrame f = new JFrame("LoadFrame");
+		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
 
 		// Classes already added Text
 		// May Need multiple for all info
@@ -31,6 +33,7 @@ public class LoadFrame {
 					+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority() + "\n";
 		}
 		CurrentCourseList.setText(courseList);
+		CurrentCourseList.setOpaque(true);
 		CurrentCourseList.setBounds(225, 200, 300, 300);
 		CurrentCourseList.setEditable(false);
 		
