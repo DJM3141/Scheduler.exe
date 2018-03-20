@@ -15,7 +15,7 @@ import javax.swing.SwingUtilities;
 
 public class LoadFrame {
 	LoadFrame() {
-		JFrame f = new JFrame("LoadFrame");
+		JFrame f = new JFrame("Currently Loaded Courses");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
 
 		// Classes already added Text
@@ -31,7 +31,26 @@ public class LoadFrame {
 		for(int i = 0; i < temp.size(); i++) {
 			courseList = courseList + temp.get(i).getDepartment() + temp.get(i).getLevel() + "     " 
 					+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority() + "\n";
+			for(int j = 0; j < temp.get(i).getOfferings().size(); j++) {
+				courseList = courseList + "    From: " + temp.get(i).getOffering(j)
+						.getStartTime() + " to " + temp.get(i).getOffering(j)
+						.getEndTime() + " on " + temp.get(i).getOffering(j).printDays() +  "  " + temp.get(i).getOffering(j).getType() +"\n";
+			}
 		}
+		
+		/*
+		for(int i = 0; i < temp.size(); i++) {
+			courseList = courseList + temp.get(i).getDepartment() + temp.get(i).getLevel() + "     " 
+					+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority() 
+					+ "\n";
+			for(int j = 0; j < temp.get(i).getOfferings().size(); j++) {
+				courseList = courseList + "    From: " + temp.get(i).getOfferings().get(j)
+						.getStartTime() + " to " + temp.get(i).getOfferings().get(j)
+						.getEndTime() + " on " + temp.get(i).getOfferings().get(j)
+						.printDays() + "\n";
+			}
+		}*/
+		
 		CurrentCourseList.setText(courseList);
 		CurrentCourseList.setOpaque(true);
 		CurrentCourseList.setBounds(225, 200, 300, 300);

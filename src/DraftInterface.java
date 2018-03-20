@@ -18,6 +18,10 @@ public class DraftInterface {
 		return currentCourses;
 	}
 	
+	public static void setCourseList(ArrayList<course> temp) {
+		currentCourses = temp;
+	}
+	
 	DraftInterface() {
 		JFrame f = new JFrame("Scheduler.exe");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));

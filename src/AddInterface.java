@@ -13,7 +13,7 @@ import javax.swing.JCheckBox;
 public class AddInterface {
 
 	AddInterface() {
-		JFrame f = new JFrame("AddFrame");
+		JFrame f = new JFrame("Add a Course");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
 		
 		// Class
@@ -80,12 +80,12 @@ public class AddInterface {
 		DisplayLabel.setBounds(10, 650, 300, 100);
 
 		// Offerings button
-		JButton Offerings = new JButton("Offerings");
-		Offerings.setBounds(10, 300, 160, 40);
+		//JButton Offerings = new JButton("Offerings");
+		//Offerings.setBounds(10, 300, 160, 40);
 
 		// Offerings label which will show event after button clicked
-		JLabel OfferingsLabel = new JLabel();
-		OfferingsLabel.setBounds(10, 650, 300, 100);
+		//JLabel OfferingsLabel = new JLabel();
+		//OfferingsLabel.setBounds(10, 650, 300, 100);
 
 		// Submit button
 		JButton Submit = new JButton("Submit");
@@ -109,8 +109,8 @@ public class AddInterface {
 		f.add(Add);
 		f.add(DisplayLabel);
 		f.add(Display);
-		f.add(OfferingsLabel);
-		f.add(Offerings);
+		//f.add(OfferingsLabel);
+		//f.add(Offerings);
 		f.add(SubmitLabel);
 		f.add(Submit);
 		f.add(PriorityCheck);
@@ -138,6 +138,7 @@ public class AddInterface {
 		});
 
 		// Offerings Button listener
+		/*
 		Offerings.addActionListener(new ActionListener() {
 
 			@Override
@@ -150,7 +151,7 @@ public class AddInterface {
 				OfferingsFrame.setVisible(true);
 
 			}
-		});
+		});*/
 
 		// Display Button listener
 		Display.addActionListener(new ActionListener() {
@@ -190,6 +191,12 @@ public class AddInterface {
 						PriorityCheck.isSelected());
 				DraftInterface.getCourseList().add(temp);
 
+				JFrame OfferingsFrame = new JFrame("OfferingsFrame");
+				OfferingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				OfferingsFrame.getContentPane().add(OfferingsFrame, new OfferingsInterface());
+				OfferingsFrame.setSize(800, 800);
+				OfferingsFrame.pack();
+				OfferingsFrame.setVisible(true);
 			}
 		});
 		// CurrentListing listener

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class offerings extends course{
+public class offerings {
 	//Variables
 	private String courseNumber;		//Course Number: IE 14046
 	private int startTime;				//Time course begins(24hr): IE 1305
@@ -15,11 +15,18 @@ public class offerings extends course{
 		
 	//Constructors
 	public offerings() {
-		super();
 		courseNumber = null;
 		startTime = 0;
 		endTime = 0;
 		type = null;
+	}
+	
+	public offerings(String CourseNumber, int StartTime, int EndTime, courseType Type, ArrayList<Boolean> Days) {
+		courseNumber = CourseNumber;
+		startTime = StartTime;
+		endTime = EndTime;
+		type = Type;
+		days = Days;
 	}
 	//End Constructors
 	
@@ -92,5 +99,31 @@ public class offerings extends course{
 	
 	public courseType getType() {
 		return type;
+	}
+	
+	// Used to Print out the Days of the offering
+	public String printDays(){
+		String temp = "";
+		for (int i = 0; i < days.size(); i++) {
+			boolean cur = days.get(i);
+			if (cur == true) {
+				if ( i == 0 ) {
+					temp = temp + "Sunday ";
+				} else if ( i == 1 ) {
+					temp = temp + "Monday ";
+				} else if ( i == 2 ) {
+					temp = temp + "Tuesday ";
+				} else if ( i == 3 ) {
+					temp = temp + "Wednesday ";
+				} else if ( i == 4 ) {
+					temp = temp + "Thursday ";
+				} else if ( i == 5 ) {
+					temp = temp + "Friday ";
+				} else if ( i == 6 ) {
+					temp = temp + "Saturday ";
+				}
+			}
+		}
+		return temp;
 	}
 }

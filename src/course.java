@@ -53,6 +53,10 @@ public class course {
 		offeringsList.add(new offerings());
 	}
 	
+	public void addOffering(String CourseNumber, int startTime, int endTime, courseType Type, ArrayList<Boolean> Days) {
+		offeringsList.add(new offerings(CourseNumber, startTime, endTime, Type, Days));
+	}
+	
 	public void setCreditAmount(String credAmt) {
 		creditAmount = Double.parseDouble(credAmt);
 	}
@@ -104,6 +108,10 @@ public class course {
 	 */
 	public offerings getOffering(int offering) {
 		return offeringsList.get(offering);
+	}
+	
+	public ArrayList<offerings> getOfferings() {
+		return offeringsList;
 	}
 	
 	public int getIndex() {

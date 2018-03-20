@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
@@ -21,8 +22,18 @@ import javax.swing.SwingUtilities;
 import javax.swing.JCheckBox;
 
 public class OfferingsInterface {
+	
+	// Instantiating CheckBoxes
+	JCheckBox SundayCheck;
+	JCheckBox MondayCheck;
+	JCheckBox TuesdayCheck;
+	JCheckBox WednesdayCheck;
+	JCheckBox ThursdayCheck;
+	JCheckBox FridayCheck;
+	JCheckBox SaturdayCheck;
+	
 	OfferingsInterface() {
-		JFrame f = new JFrame("AddFrame");
+		JFrame f = new JFrame("Add an Offering");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
 
 		// Class
@@ -54,37 +65,37 @@ public class OfferingsInterface {
 		 */
 
 		// Sunday Checkbox
-		JCheckBox SundayCheck = new JCheckBox("Sunday");
+		SundayCheck = new JCheckBox("Sunday");
 		SundayCheck.setBounds(10, 130, 100, 30);
 		SundayCheck.setOpaque(false);
 
 		// Monday Checkbox
-		JCheckBox MondayCheck = new JCheckBox("Monday");
+		MondayCheck = new JCheckBox("Monday");
 		MondayCheck.setBounds(110, 130, 100, 30);
 		MondayCheck.setOpaque(false);
 
 		// Tuesday Checkbox
-		JCheckBox TuesdayCheck = new JCheckBox("Tuesday");
+		TuesdayCheck = new JCheckBox("Tuesday");
 		TuesdayCheck.setBounds(210, 130, 100, 30);
 		TuesdayCheck.setOpaque(false);
 
 		// Wednesday Checkbox
-		JCheckBox WednesdayCheck = new JCheckBox("Wednesday");
+		WednesdayCheck = new JCheckBox("Wednesday");
 		WednesdayCheck.setBounds(310, 130, 100, 30);
 		WednesdayCheck.setOpaque(false);
 
 		// Thursday Checkbox
-		JCheckBox ThursdayCheck = new JCheckBox("Thursday");
+		ThursdayCheck = new JCheckBox("Thursday");
 		ThursdayCheck.setBounds(410, 130, 100, 30);
 		ThursdayCheck.setOpaque(false);
 
 		// Friday Checkbox
-		JCheckBox FridayCheck = new JCheckBox("Friday");
+		FridayCheck = new JCheckBox("Friday");
 		FridayCheck.setBounds(510, 130, 100, 30);
 		FridayCheck.setOpaque(false);
 
 		// Saturday Checkbox
-		JCheckBox SaturdayCheck = new JCheckBox("Saturday");
+		SaturdayCheck = new JCheckBox("Saturday");
 		SaturdayCheck.setBounds(610, 130, 100, 30);
 		SaturdayCheck.setOpaque(false);
 
@@ -132,8 +143,8 @@ public class OfferingsInterface {
 		f.add(EndTimeL);
 
 		// Offerings button
-		JButton Offerings = new JButton("More Offerings");
-		Offerings.setBounds(335, 600, 140, 40);
+		JButton Back = new JButton("Add Another Course");
+		Back.setBounds(335, 600, 140, 40);
 
 		// Offerings label which will show event after button clicked
 		JLabel OfferingsLabel = new JLabel();
@@ -178,7 +189,7 @@ public class OfferingsInterface {
 
 		// Main add to frame
 		f.add(OfferingsLabel);
-		f.add(Offerings);
+		f.add(Back);
 		f.add(SubmitLabel);
 		f.add(Submit);
 
@@ -186,20 +197,23 @@ public class OfferingsInterface {
 		f.setSize(800, 800);
 		f.setLayout(null);
 		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 		// Submit listener
 		Submit.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Submit selected");
-				JFrame AddFrame = new JFrame("AddFrame");
-				AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				AddFrame.getContentPane().add(AddFrame, new AddInterface());
-				AddFrame.setSize(800, 800);
-				AddFrame.pack();
-				AddFrame.setVisible(true);
+
+				DraftInterface.currentCourses.get(DraftInterface.currentCourses.size()-1)
+				.addOffering( 
+						CRNLB.getText(), 
+						Integer.parseInt( StartTimeLB.getText() ), 
+						Integer.parseInt( EndTimeLB.getText() ),
+						getCourseType( Full, TrackA, TrackB ),
+						getDaysList()
+						);
+				System.out.println("Hello");
 
 			}
 		});
@@ -284,21 +298,61 @@ public class OfferingsInterface {
 			}
 		});
 		// Submit listener
-		Offerings.addActionListener(new ActionListener() {
+		Back.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Offerings selected");
-				JFrame OfferingsFrame = new JFrame("OfferingsFrame");
-				OfferingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				OfferingsFrame.getContentPane().add(OfferingsFrame, new OfferingsInterface());
-				OfferingsFrame.setSize(800, 800);
-				OfferingsFrame.pack();
-				OfferingsFrame.setVisible(true);
-
+				f.setVisible(false);
 			}
 		});
 
+	}
+	
+	public ArrayList<Boolean> getDaysList() {
+		ArrayList<Boolean> days = new ArrayList<Boolean>();
+		days.add(false);
+		days.add(false);
+		days.add(false);
+		days.add(false);
+		days.add(false);
+		days.add(false);
+		days.add(false);
+		if( SundayCheck.isSelected() ) {
+			days.set(0, true);
+		} 
+		if( MondayCheck.isSelected() ) {
+			days.set(1, true);
+		} 
+		if( TuesdayCheck.isSelected() ) {
+			days.set(2, true);
+		} 
+		if( WednesdayCheck.isSelected() ) {
+			days.set(3, true);
+		} 
+		if( ThursdayCheck.isSelected() ) {
+			days.set(4, true);
+		} 
+		if( FridayCheck.isSelected() ) {
+			days.set(5, true);
+		} 
+		if( SaturdayCheck.isSelected() ) {
+			days.set(6, true);
+		} 
+		return days;
+	}
+	
+	public courseType getCourseType(JRadioButton Full, JRadioButton TrackA, JRadioButton TrackB) {
+		courseType temp = null;
+		if (TrackA.isSelected()) {
+			temp = courseType.TRACK_A;
+		}
+		if (TrackB.isSelected()) {
+			temp = courseType.TRACK_B;
+		}
+		if (Full.isSelected()) {
+			temp = courseType.FULL;
+		}
+		return temp;
 	}
 
 	public static void main(String[] args) {
