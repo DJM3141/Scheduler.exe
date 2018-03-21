@@ -51,19 +51,6 @@ public class OfferingsInterface {
 		CRNEx.setText("Example: 27364");
 		CRNEx.setBounds(170, 55, 200, 100);
 
-		/*
-		 * JTextField DaysLB = new JTextField(); DaysLB.setBounds(75, 140, 80,
-		 * 30); JLabel DaysL = new JLabel(); DaysL.setText("Days :");
-		 * DaysL.setBounds(10, 100, 200, 100); // Days Example Label JLabel
-		 * DaysEx = new JLabel(); DaysEx.setText("Example: 1,3,5");
-		 * DaysEx.setBounds(170, 105, 200, 100);
-		 * 
-		 * // Days Explain Label JLabel DaysEp = new JLabel(); DaysEp.
-		 * setText("Example: Sunday: 0, Monday: 1, Tuesday: 2... Saturday: 6");
-		 * DaysEp.setBounds(270, 105, 350, 100);
-		 * 
-		 */
-
 		// Sunday Checkbox
 		SundayCheck = new JCheckBox("Sunday");
 		SundayCheck.setBounds(10, 130, 100, 30);
@@ -158,17 +145,6 @@ public class OfferingsInterface {
 		JLabel SubmitLabel = new JLabel();
 		SubmitLabel.setBounds(300, 600, 300, 100);
 
-		/*
-		 * // Checkbox JCheckBox FullBox = new JCheckBox("Full?");
-		 * FullBox.setBounds(10, 250, 100, 30);
-		 * 
-		 * // Checkbox JCheckBox TrackABox = new JCheckBox("Track A?");
-		 * TrackABox.setBounds(110, 250, 100, 30);
-		 * 
-		 * // Checkbox JCheckBox TrackBBox = new JCheckBox("Track B?");
-		 * TrackBBox.setBounds(210, 250, 100, 30);
-		 * 
-		 */
 		// Radio Buttons
 		JRadioButton Full = new JRadioButton("Full?");
 		Full.setOpaque(false);

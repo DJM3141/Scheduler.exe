@@ -79,14 +79,6 @@ public class AddInterface {
 		JLabel DisplayLabel = new JLabel();
 		DisplayLabel.setBounds(10, 650, 300, 100);
 
-		// Offerings button
-		//JButton Offerings = new JButton("Offerings");
-		//Offerings.setBounds(10, 300, 160, 40);
-
-		// Offerings label which will show event after button clicked
-		//JLabel OfferingsLabel = new JLabel();
-		//OfferingsLabel.setBounds(10, 650, 300, 100);
-
 		// Submit button
 		JButton Submit = new JButton("Submit");
 		Submit.setBounds(10, 350, 160, 40);
@@ -136,22 +128,6 @@ public class AddInterface {
 
 			}
 		});
-
-		// Offerings Button listener
-		/*
-		Offerings.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				JFrame OfferingsFrame = new JFrame("OfferingsFrame");
-				OfferingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				OfferingsFrame.getContentPane().add(OfferingsFrame, new OfferingsInterface());
-				OfferingsFrame.setSize(800, 800);
-				OfferingsFrame.pack();
-				OfferingsFrame.setVisible(true);
-
-			}
-		});*/
 
 		// Display Button listener
 		Display.addActionListener(new ActionListener() {
