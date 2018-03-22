@@ -43,6 +43,7 @@ public class schedule {
 					else if (currentEnd > (daysList.get(day).get(i)).getStartTime() && currentEnd < (daysList.get(day).get(i)).getEndTime())
 						return false;
 			}
+		
 		//Add Offering to schedule
 		for (int day = 0; day < 7; day++)
 			if (offering.getDay(day)) {

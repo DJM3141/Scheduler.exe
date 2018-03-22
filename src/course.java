@@ -29,7 +29,7 @@ public class course {
 		scheduleIndex = 0;
 	}
 	
-	public course(String dept, String lv, int credAmt, boolean pri) {
+	public course(String dept, String lv, double credAmt, boolean pri) {
 		department = dept;
 		level = lv;
 		creditAmount = credAmt;
@@ -54,7 +54,7 @@ public class course {
 	}
 	
 	public void addOffering(String CourseNumber, int startTime, int endTime, courseType Type, ArrayList<Boolean> Days) {
-		offeringsList.add(new offerings(CourseNumber, startTime, endTime, Type, Days));
+		offeringsList.add(new offerings(CourseNumber, startTime, endTime, Type, Days, department, level, creditAmount, priority));
 	}
 	
 	public void setCreditAmount(String credAmt) {
@@ -70,7 +70,7 @@ public class course {
 	}
 	
 	public void incIndex() {
-		if (scheduleIndex == offeringsList.size())
+		if (scheduleIndex == offeringsList.size() - 1)
 			scheduleIndex = 0;
 		else
 			scheduleIndex++;

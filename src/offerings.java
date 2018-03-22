@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class offerings {
+public class offerings extends course{
 	//Variables
 	private String courseNumber;		//Course Number: IE 14046
 	private int startTime;				//Time course begins(24hr): IE 1305
@@ -15,13 +15,15 @@ public class offerings {
 		
 	//Constructors
 	public offerings() {
+		super();
 		courseNumber = null;
 		startTime = 0;
 		endTime = 0;
 		type = null;
 	}
 	
-	public offerings(String CourseNumber, int StartTime, int EndTime, courseType Type, ArrayList<Boolean> Days) {
+	public offerings(String CourseNumber, int StartTime, int EndTime, courseType Type, ArrayList<Boolean> Days, String dept, String lv, double credAmt, boolean pri) {
+		super(dept, lv, credAmt, pri);
 		courseNumber = CourseNumber;
 		startTime = StartTime;
 		endTime = EndTime;
