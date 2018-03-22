@@ -119,7 +119,7 @@ public class course {
 	}
 	
 	public boolean indexIsLast() {
-		if (scheduleIndex == offeringsList.size())
+		if (scheduleIndex == offeringsList.size() - 1)
 			return true;
 		else
 			return false;

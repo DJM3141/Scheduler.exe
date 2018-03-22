@@ -37,24 +37,27 @@ public class schedule {
 		//Check for existing conflicts
 		for (int day = 0; day < 7; day++)
 			if (offering.getDay(day))
-				for (int i = 0; i > daysList.get(day).size(); i++) {
+				for (int i = 0; i < daysList.get(day).size(); i++) {
 					if (currentStart > (daysList.get(day).get(i)).getStartTime() && currentStart < (daysList.get(day).get(i)).getEndTime())
 						return false;
 					else if (currentEnd > (daysList.get(day).get(i)).getStartTime() && currentEnd < (daysList.get(day).get(i)).getEndTime())
 						return false;
-				}
-		
+			}
 		//Add Offering to schedule
 		for (int day = 0; day < 7; day++)
-			if (offering.getDay(day))
-				for (int i = 0; i < daysList.get(day).size(); i ++) {
-					if (offering.getStartTime() < daysList.get(day).get(i).getStartTime()) {
-						daysList.get(day).add(i, offering);
-						i = daysList.get(day).size();
-					}
-					else if (i == daysList.get(day).size() - 1)
-						daysList.get(day).add(offering);
+			if (offering.getDay(day)) {
+				if (daysList.get(day).size() == 0)
+					daysList.get(day).add(offering);
+				else
+					for (int i = 0; i < daysList.get(day).size(); i ++) {
+						if (offering.getStartTime() < daysList.get(day).get(i).getStartTime()) {
+							daysList.get(day).add(i, offering);
+							i = daysList.get(day).size();
+						}
+						else if (i == daysList.get(day).size() - 1)
+							daysList.get(day).add(offering);
 				}
+			}
 		return true;
 	}
 	

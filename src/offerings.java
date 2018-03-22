@@ -8,7 +8,7 @@ public class offerings {
 	private courseType type;			//Type of course(full or track A/B)
 	
 	//List of days the course runs, index 0 = Sunday, continues in chronological order. True = ran on this day.
-	private ArrayList<Boolean> days = new ArrayList<Boolean>(6);
+	private ArrayList<Boolean> days = new ArrayList<Boolean>();
 	//End Variables
 	
 	//---------------------------------------------------------------------------------------------------------
@@ -26,7 +26,9 @@ public class offerings {
 		startTime = StartTime;
 		endTime = EndTime;
 		type = Type;
-		days = Days;
+		
+		for (int i = 0; i < 7; i++)
+			days.add(Days.get(i));
 	}
 	//End Constructors
 	
