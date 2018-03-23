@@ -63,28 +63,35 @@ public class Test {
 		days.set(6, false);
 		testCourseList1.add(new course("CS", "3513", 3, true));
 		testCourseList1.get(4).addOffering("84907", 1105, 1220, courseType.FULL, days);
+		testCourseList1.get(4).addOffering("85907", 1605, 1720, courseType.FULL, days);
 
 		scheduler testScheduler = new scheduler(testCourseList1);
 		testSchedules = testScheduler.createSchedules();
 		
-		for (int day = 0; day < 7; day++) {
-			if (day == 0)
-				System.out.println("Sunday");
-			else if (day == 1)
-				System.out.println("Monday");
-			else if (day == 2)
-				System.out.println("Tuesday");
-			else if (day == 3)
-				System.out.println("Wednesday");
-			else if (day == 4)
-				System.out.println("Thursday");
-			else if (day == 5)
-				System.out.println("Friday");
-			else if (day == 6)
-				System.out.println("Saturday");
-			for (int j = 0; j < testSchedules.get(0).getOfferingsList(day).size(); j++)
-				System.out.println(testSchedules.get(0).getOfferingsList(day).get(j).getLevel());
-			System.out.println();
+		//Test Print
+		for (int scheduleNumber = 0; scheduleNumber < testSchedules.size(); scheduleNumber++) {
+			System.out.println("Schedule " + (scheduleNumber + 1));
+			for (int day = 0; day < 7; day++) {
+				if (day == 0)
+					System.out.println("Sunday");
+				else if (day == 1)
+					System.out.println("Monday");
+				else if (day == 2)
+					System.out.println("Tuesday");
+				else if (day == 3)
+					System.out.println("Wednesday");
+				else if (day == 4)
+					System.out.println("Thursday");
+				else if (day == 5)
+					System.out.println("Friday");
+				else if (day == 6)
+					System.out.println("Saturday");
+				for (int j = 0; j < testSchedules.get(scheduleNumber).getOfferingsList(day).size(); j++)
+					System.out.println(testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
+							+ testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getStartTime() + " - "
+							+ testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getEndTime());
+				System.out.println();
+			}
 		}
 	}
 }

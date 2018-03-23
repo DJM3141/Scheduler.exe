@@ -90,34 +90,47 @@ public class scheduler {
 		int scheduleIndex = -1;
 
 		while (valid) {
-			schedules.add(new schedule());
+			valid = false;					//Ends while loop if unchanged
+			schedules.add(new schedule());	//Adds new schedule
 			scheduleIndex++;
-
+			
+			//Loops until all courses have one offering in schedule.
 			for (int courseIndex = 0; courseIndex < sortedPriorityList.size(); courseIndex++) {
-				if (!(schedules.get(scheduleIndex).addCourseOffering(sortedPriorityList.get(courseIndex)
-						.getOffering(sortedPriorityList.get(courseIndex).getIndex())))) {
-					if (courseIndex == 0 && sortedPriorityList.get(courseIndex).indexIsLast())
-						valid = false;
+				
+				//Checks if course offering can be added, moves on if true
+				if (!(schedules.get(scheduleIndex).addCourseOffering(sortedPriorityList.get(courseIndex).getOffering(sortedPriorityList.get(courseIndex).getIndex())))) {
 					
-					else if (sortedPriorityList.get(courseIndex).indexIsLast()) {
+					//Checks if all offerings of a course have been tried and rolls back to last course's next offering
+					if (sortedPriorityList.get(courseIndex).indexIsLast()) {
+						//Checks how far to roll back
 						while (sortedPriorityList.get(courseIndex).indexIsLast() && courseIndex != 0) {
+							System.out.println(scheduleIndex);
 							sortedPriorityList.get(courseIndex).incIndex();
 							courseIndex--;
 						}
+						//Increments to next offering of course
 						if (courseIndex != 0)
-							sortedPriorityList.get(courseIndex).incIndex();	
+							sortedPriorityList.get(courseIndex).incIndex();
 					}
 					
+					//Moves on to next offering in current course and tries again
 					else {
 						sortedPriorityList.get(courseIndex).incIndex();
 						courseIndex--;
 					}
 
 				}
-				else if (sortedPriorityList.get(0).indexIsLast())
-					valid = false;
 			}
+			
+			//Checks if all courses have reached the end of offering list
+			for (int courseIndex = 0; courseIndex < sortedPriorityList.size(); courseIndex++)
+				//Resumes while loop if there are still offerings to try adding to create a new schedule
+				if (!(sortedPriorityList.get(courseIndex).indexIsLast())){
+					sortedPriorityList.get(courseIndex).incIndex();
+					valid = true;
+				}
 		}
+		
 		if (schedules.isEmpty())
 			return false;
 		else
@@ -125,7 +138,7 @@ public class scheduler {
 	}
 
 	private void addFillers() {
-
+		//To Do
 	}
 	// End Helpers
 }

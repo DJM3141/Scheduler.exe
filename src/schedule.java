@@ -55,8 +55,10 @@ public class schedule {
 							daysList.get(day).add(i, offering);
 							i = daysList.get(day).size();
 						}
-						else if (i == daysList.get(day).size() - 1)
+						else if (i == daysList.get(day).size() - 1) {
 							daysList.get(day).add(offering);
+							i++;
+						}
 				}
 			}
 		return true;
