@@ -100,13 +100,17 @@ public class LoadFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				AddLabel.setText("Add Schedule");
-				System.out.println("Add Clicked");
-				JFrame AddFrame = new JFrame("AddFrame");
-				AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				AddFrame.getContentPane().add(AddFrame, new AddInterface());
-				AddFrame.setSize(800, 800);
-				AddFrame.pack();
-				AddFrame.setVisible(true);
+				
+				try {
+					JFrame AddFrame = new JFrame("AddFrame");
+					AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					AddFrame.getContentPane().add(AddFrame, new AddInterface());
+					AddFrame.setSize(800, 800);
+					AddFrame.pack();
+					AddFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+					
+				}
 
 			}
 		});
@@ -141,15 +145,18 @@ public class LoadFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				DisplayLabel.setText("Display Schedule");
-				System.out.println("Display Clicked");
-
-				JFrame DisplayFrame = new JFrame("DisplayFrame");
-				DisplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				DisplayFrame.getContentPane().add(DisplayFrame, new DisplayInterface());
-				DisplayFrame.setSize(1500, 1500);
-				DisplayFrame.pack();
-				DisplayFrame.setVisible(true);
-
+				
+				try {
+					JFrame DisplayFrame = new JFrame("DisplayFrame");
+					DisplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					DisplayFrame.getContentPane().add(DisplayFrame, new DisplayInterface());
+					DisplayFrame.setSize(1500, 1500);
+					DisplayFrame.pack();
+					DisplayFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+					
+				}
+				
 			}
 		});
 

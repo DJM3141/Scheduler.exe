@@ -47,15 +47,17 @@ public class DisplayInterface {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 
-				System.out.println("Print Clicked");
-
-				JFrame PrintFrame = new JFrame("PrintFrame");
-				PrintFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				PrintFrame.getContentPane().add(PrintFrame, new PrintInterface());
-				PrintFrame.setSize(800, 800);
-				PrintFrame.pack();
-				PrintFrame.setVisible(true);
-
+				try {
+					JFrame PrintFrame = new JFrame("PrintFrame");
+					PrintFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					PrintFrame.getContentPane().add(PrintFrame, new PrintInterface());
+					PrintFrame.setSize(800, 800);
+					PrintFrame.pack();
+					PrintFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+					
+				}
+				
 			}
 		});
 

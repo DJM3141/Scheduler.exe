@@ -118,13 +118,17 @@ public class AddInterface {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				AddLabel.setText("Add Another Schedule");
-				System.out.println("Add Another Clicked");
-				JFrame AddFrame = new JFrame("AddFrame");
-				AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				AddFrame.getContentPane().add(AddFrame, new AddInterface());
-				AddFrame.setSize(800, 800);
-				AddFrame.pack();
-				AddFrame.setVisible(true);
+				
+				try {
+					JFrame AddFrame = new JFrame("AddFrame");
+					AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					AddFrame.getContentPane().add(AddFrame, new AddInterface());
+					AddFrame.setSize(800, 800);
+					AddFrame.pack();
+					AddFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+					
+				}
 
 			}
 		});
@@ -136,14 +140,17 @@ public class AddInterface {
 			public void actionPerformed(ActionEvent arg0) {
 				DisplayLabel.setText("Display Schedule");
 				System.out.println("Display Clicked");
-
-				JFrame DisplayFrame = new JFrame("DisplayFrame");
-				DisplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				DisplayFrame.getContentPane().add(DisplayFrame, new DisplayInterface());
-				DisplayFrame.setSize(1500, 1500);
-				DisplayFrame.pack();
-				DisplayFrame.setVisible(true);
-
+				try {
+					JFrame DisplayFrame = new JFrame("DisplayFrame");
+					DisplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					DisplayFrame.getContentPane().add(DisplayFrame, new DisplayInterface());
+					DisplayFrame.setSize(1500, 1500);
+					DisplayFrame.pack();
+					DisplayFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+				
+				}
+				
 			}
 		});
 		// Priority Check listener
@@ -167,12 +174,17 @@ public class AddInterface {
 						PriorityCheck.isSelected());
 				DraftInterface.getCourseList().add(temp);
 
-				JFrame OfferingsFrame = new JFrame("OfferingsFrame");
-				OfferingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				OfferingsFrame.getContentPane().add(OfferingsFrame, new OfferingsInterface());
-				OfferingsFrame.setSize(800, 800);
-				OfferingsFrame.pack();
-				OfferingsFrame.setVisible(true);
+				try {
+					JFrame OfferingsFrame = new JFrame("OfferingsFrame");
+					OfferingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					OfferingsFrame.getContentPane().add(OfferingsFrame, new OfferingsInterface());
+					OfferingsFrame.setSize(800, 800);
+					OfferingsFrame.pack();
+					OfferingsFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+					
+				}
+				
 			}
 		});
 		// CurrentListing listener
@@ -180,13 +192,17 @@ public class AddInterface {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				JFrame AddFrame = new JFrame("LoadFrame");
-				AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				AddFrame.getContentPane().add(AddFrame, new LoadFrame());
-				AddFrame.setSize(800, 800);
-				AddFrame.pack();
-				AddFrame.setVisible(true);
-
+				
+				try {
+					JFrame AddFrame = new JFrame("LoadFrame");
+					AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					AddFrame.getContentPane().add(AddFrame, new LoadFrame());
+					AddFrame.setSize(800, 800);
+					AddFrame.pack();
+					AddFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+					
+				}
 			}
 		});
 

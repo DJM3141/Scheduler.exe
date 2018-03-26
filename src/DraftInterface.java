@@ -95,13 +95,17 @@ public class DraftInterface {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				NewLabel.setText("New Schedule");
-				System.out.println("New Clicked");
-				JFrame AddFrame = new JFrame("AddFrame");
-				AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				AddFrame.getContentPane().add(AddFrame, new AddInterface());
-				AddFrame.setSize(800, 800);
-				AddFrame.pack();
-				AddFrame.setVisible(true);
+				
+				try {
+					JFrame AddFrame = new JFrame("AddFrame");
+					AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					AddFrame.getContentPane().add(AddFrame, new AddInterface());
+					AddFrame.setSize(800, 800);
+					AddFrame.pack();
+					AddFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+					
+				}
 
 			}
 		});
@@ -112,14 +116,17 @@ public class DraftInterface {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				LoadLabel.setText("Loading... Please Wait");
-				System.out.println("Load Clicked");
-				JFrame LoadFrame = new JFrame("LoadFrame");
-				LoadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				LoadFrame.getContentPane().add(LoadFrame, new LoadFrame());
-				LoadFrame.setSize(1500, 1500);
-				LoadFrame.pack();
-				LoadFrame.setVisible(true);
-
+				
+				try {
+					JFrame LoadFrame = new JFrame("LoadFrame");
+					LoadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					LoadFrame.getContentPane().add(LoadFrame, new LoadFrame());
+					LoadFrame.setSize(1500, 1500);
+					LoadFrame.pack();
+					LoadFrame.setVisible(true);
+				} catch(Exception IllegalArgumentException) {
+					
+				}
 			}
 		});
 
