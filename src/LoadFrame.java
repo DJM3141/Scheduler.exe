@@ -129,7 +129,12 @@ public class LoadFrame {
 					ArrayList<course> temp = DraftInterface.getCourseList();
 					for(int i = 0; i < temp.size(); i++) {
 						pw.println(temp.get(i).getDepartment() + temp.get(i).getLevel() + "     " 
-								+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority());
+								+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority() + "\n");
+						for(int j = 0; j < temp.get(i).getOfferings().size(); j++) {
+							pw.println("    From: " + temp.get(i).getOffering(j)
+									.getStartTime() + " to " + temp.get(i).getOffering(j)
+									.getEndTime() + " on " + temp.get(i).getOffering(j).printDays() +  "  " + temp.get(i).getOffering(j).getType() +"\n");
+						}
 					}
 				} catch (IOException ex) {
 					ex.printStackTrace();
