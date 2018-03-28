@@ -35,7 +35,9 @@ public class OfferingsInterface {
 	OfferingsInterface() {
 		JFrame f = new JFrame("Add an Offering");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
-
+		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setIconImage(img.getImage());
+		
 		// Class
 		JLabel OfferingsL = new JLabel();
 		OfferingsL.setText("Offerings");

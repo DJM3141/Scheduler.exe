@@ -12,6 +12,8 @@ public class DisplayInterface {
 	DisplayInterface() {
 		JFrame f = new JFrame("DisplayInterface");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
+		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setIconImage(img.getImage());
 		
 		// Credit max Text
 		JLabel CreditMax = new JLabel();

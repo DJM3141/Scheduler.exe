@@ -15,6 +15,8 @@ public class AddInterface {
 	AddInterface() {
 		JFrame f = new JFrame("Add a Course");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
+		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setIconImage(img.getImage());
 		
 		// Class
 		JLabel Class = new JLabel();

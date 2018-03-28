@@ -25,6 +25,8 @@ public class DraftInterface {
 	DraftInterface() {
 		JFrame f = new JFrame("Scheduler.exe");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
+		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setIconImage(img.getImage());
 
 		// Application info Text
 		// May Need multiple for all info
