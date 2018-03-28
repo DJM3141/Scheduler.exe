@@ -126,6 +126,8 @@ public class DraftInterface {
 					LoadFrame.setSize(1500, 1500);
 					LoadFrame.pack();
 					LoadFrame.setVisible(true);
+					ImageIcon img = new ImageIcon("dog1.png.png");
+					LoadFrame.setIconImage(img.getImage());
 				} catch(Exception IllegalArgumentException) {
 					
 				}

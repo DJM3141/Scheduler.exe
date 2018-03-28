@@ -17,6 +17,8 @@ public class LoadFrame {
 	LoadFrame() {
 		JFrame f = new JFrame("Currently Loaded Courses");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
+		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setIconImage(img.getImage());
 
 		// Classes already added Text
 		// May Need multiple for all info
