@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class schedule {
 	//Variables
 	private ArrayList<ArrayList<offerings>> daysList = new ArrayList<ArrayList<offerings>>();
+	private int coursesAdded = 0;
 	//End Variables
 	
 	//---------------------------------------------------------------------------------------------------------
@@ -21,6 +22,7 @@ public class schedule {
 		daysList.add(new ArrayList<offerings>()); //Thursday	(4)
 		daysList.add(new ArrayList<offerings>()); //Friday		(5)
 		daysList.add(new ArrayList<offerings>()); //Saturday	(6)
+		coursesAdded = 0;
 	}
 	//End Constructors
 	
@@ -38,9 +40,9 @@ public class schedule {
 		for (int day = 0; day < 7; day++)
 			if (offering.getDay(day))
 				for (int i = 0; i < daysList.get(day).size(); i++) {
-					if (currentStart > (daysList.get(day).get(i)).getStartTime() && currentStart < (daysList.get(day).get(i)).getEndTime())
+					if (currentStart >= (daysList.get(day).get(i)).getStartTime() && currentStart <= (daysList.get(day).get(i)).getEndTime())
 						return false;
-					else if (currentEnd > (daysList.get(day).get(i)).getStartTime() && currentEnd < (daysList.get(day).get(i)).getEndTime())
+					else if (currentEnd >= (daysList.get(day).get(i)).getStartTime() && currentEnd <= (daysList.get(day).get(i)).getEndTime())
 						return false;
 			}
 		
@@ -69,6 +71,10 @@ public class schedule {
 			if (offering.getDay(day))
 				daysList.get(day).remove(offering);
 	}
+	
+	public void incCourseAmount() {
+		coursesAdded++;
+	}
 	//End Setters
 	
 	//---------------------------------------------------------------------------------------------------------
@@ -76,6 +82,10 @@ public class schedule {
 	//Getters
 	public ArrayList<offerings> getOfferingsList(int day) {
 		return daysList.get(day);
+	}
+	
+	public int courseAmount() {
+		return coursesAdded;
 	}
 	//End Getters
 }
