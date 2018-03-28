@@ -52,7 +52,7 @@ public class Test {
 		days.set(6, false);
 		testCourseList1.add(new course("CS", "3425", 3, true));
 		testCourseList1.get(3).addOffering("83476", 1405, 1520, courseType.FULL, days);
-		//testCourseList1.get(3).addOffering("85907", 1605, 1720, courseType.FULL, days);
+		testCourseList1.get(3).addOffering("85907", 1605, 1720, courseType.FULL, days);
 
 		// CS 3513
 		days.set(0, false);
@@ -64,8 +64,8 @@ public class Test {
 		days.set(6, false);
 		testCourseList1.add(new course("CS", "3513", 3, true));
 		testCourseList1.get(4).addOffering("84907", 1105, 1220, courseType.FULL, days);
-		//testCourseList1.get(4).addOffering("85907", 1605, 1720, courseType.FULL, days);
-		//testCourseList1.get(4).addOffering("84721", 905, 920, courseType.FULL, days);
+		testCourseList1.get(4).addOffering("85907", 1605, 1720, courseType.FULL, days);
+		testCourseList1.get(4).addOffering("84721", 905, 920, courseType.FULL, days);
 
 		scheduler testScheduler = new scheduler(testCourseList1);
 		testSchedules = testScheduler.createSchedules();

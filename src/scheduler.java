@@ -91,72 +91,69 @@ public class scheduler {
 		int scheduleIndex = -1;
 
 		while (valid) {
-			valid = false;					//Ends while loop if unchanged
-			schedules.add(new schedule());	//Adds new schedule
+			valid = false; // Ends while loop if unchanged
+			schedules.add(new schedule()); // Adds new schedule
 			scheduleIndex++;
-			//Loops until all courses have one offering in schedule.
+			// Loops until all courses have one offering in schedule.
 			for (int courseIndex = 0; courseIndex < sortedPriorityList.size(); courseIndex++) {
-				
-				//Checks if course offering can be added, moves on if true
-				if (!(schedules.get(scheduleIndex).addCourseOffering(sortedPriorityList.get(courseIndex).getOffering(sortedPriorityList.get(courseIndex).getIndex())))) {	
-					//Checks if all offerings of a course have been tried and rolls back to last course's next offering
-					//if (sortedPriorityList.get(courseIndex).indexIsLast()) {
-						//Checks how far to roll back
-						while (sortedPriorityList.get(courseIndex).indexIsLast() && courseIndex != 0) {
-							sortedPriorityList.get(courseIndex).incIndex();
-							courseIndex--;
-							//sortedPriorityList.get(courseIndex).incIndex();
-						}
-						//Increments to next offering of course
-						//if (courseIndex != 0)
-							//sortedPriorityList.get(courseIndex).incIndex();
-						
-					//}
-					
-					if (courseIndex == 0 && sortedPriorityList.get(0).indexIsLast() && schedules.get(scheduleIndex).courseAmount() != sortedPriorityList.size()) {
+
+				// Checks if course offering can be added, moves on if true
+				if (!(schedules.get(scheduleIndex).addCourseOffering(sortedPriorityList.get(courseIndex)
+						.getOffering(sortedPriorityList.get(courseIndex).getIndex())))) {
+					// Checks if all offerings of a course have been tried and
+					// rolls back to last course's next offering
+					// Checks how far to roll back
+					while (sortedPriorityList.get(courseIndex).indexIsLast() && courseIndex != 0) {
+						sortedPriorityList.get(courseIndex).incIndex();
+						courseIndex--;
+					}
+
+					if (courseIndex == 0 && sortedPriorityList.get(0).indexIsLast()
+							&& schedules.get(scheduleIndex).courseAmount() != sortedPriorityList.size()) {
 						schedules.remove(scheduleIndex);
-						courseIndex = sortedPriorityList.size();		//End Loop
+						courseIndex = sortedPriorityList.size(); // End Loop
 						incomplete = true;
 					}
-					
-					//Moves on to next offering in current course and tries again
+
+					// Moves on to next offering in current course and tries
+					// again
 					if (!(sortedPriorityList.get(courseIndex).indexIsLast())) {
 						sortedPriorityList.get(courseIndex).incIndex();
 					}
 					courseIndex--;
-				}
-				else {
+				} else {
 					schedules.get(scheduleIndex).incCourseAmount();
 				}
-				
+
 			}
-			
-			//Checks if all courses have reached the end of offering list
+
+			// Checks if all courses have reached the end of offering list
 			if (!(incomplete)) {
-				for (int courseIndex = 0; courseIndex < sortedPriorityList.size(); courseIndex++) 
-					//Resumes while loop if there are still offerings to try adding to create a new schedule
+				for (int courseIndex = 0; courseIndex < sortedPriorityList.size(); courseIndex++)
+					// Resumes while loop if there are still offerings to try
+					// adding to create a new schedule
 					if (!(sortedPriorityList.get(courseIndex).indexIsLast()))
 						valid = true;
-				
+
 				if (valid) {
 					int courseIndex = (sortedPriorityList.size() - 1);
-						if (sortedPriorityList.get(courseIndex).indexIsLast()) {
-							//Checks how far to roll back
-							while (sortedPriorityList.get(courseIndex).indexIsLast() && courseIndex != 0) {
-								sortedPriorityList.get(courseIndex).incIndex();
-								courseIndex--;
-								sortedPriorityList.get(courseIndex).incIndex();
-							}
-						}
-					//Increments to next offering of course
-						else if (courseIndex != 0) {
+					if (sortedPriorityList.get(courseIndex).indexIsLast()) {
+						// Checks how far to roll back
+						while (sortedPriorityList.get(courseIndex).indexIsLast() && courseIndex != 0) {
 							sortedPriorityList.get(courseIndex).incIndex();
-							courseIndex = 0;
+							courseIndex--;
 						}
+						sortedPriorityList.get(courseIndex).incIndex();
+					}
+					// Increments to next offering of course
+					else if (courseIndex != 0) {
+						sortedPriorityList.get(courseIndex).incIndex();
+						courseIndex = 0;
+					}
 				}
 			}
 		}
-		
+
 		if (schedules.isEmpty())
 			return false;
 		else
@@ -164,7 +161,7 @@ public class scheduler {
 	}
 
 	private void addFillers() {
-		//To Do
+		// To Do
 	}
 	// End Helpers
 }
