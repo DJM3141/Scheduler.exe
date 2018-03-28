@@ -48,6 +48,34 @@ public class PrintInterface {
 		}
 		*/
 
+		scheduler newScheduler = new scheduler(DraftInterface.getCourseList());
+		ArrayList<schedule> finalData = newScheduler.createSchedules();
+		
+		for (int scheduleNumber = 0; scheduleNumber < finalData.size(); scheduleNumber++) {
+			System.out.println("Schedule " + (scheduleNumber + 1));
+			for (int day = 0; day < 7; day++) {
+				if (day == 0)
+					System.out.println("Sunday");
+				else if (day == 1)
+					System.out.println("Monday");
+				else if (day == 2)
+					System.out.println("Tuesday");
+				else if (day == 3)
+					System.out.println("Wednesday");
+				else if (day == 4)
+					System.out.println("Thursday");
+				else if (day == 5)
+					System.out.println("Friday");
+				else if (day == 6)
+					System.out.println("Saturday");
+				for (int j = 0; j < finalData.get(scheduleNumber).getOfferingsList(day).size(); j++)
+					System.out.println(finalData.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
+							+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getStartTime() + " - "
+							+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getEndTime());
+				System.out.println();
+			}
+		}
+		
 	}
 	public static void main(String[] args) {
 		new PrintInterface();
