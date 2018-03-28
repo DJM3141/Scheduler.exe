@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -113,10 +114,6 @@ public class OfferingsInterface {
 		f.add(CRNLB);
 		f.add(CRNEx);
 		f.add(CRNL);
-		// f.add(DaysLB);
-		// f.add(DaysEx);
-		// f.add(DaysEp);
-		// f.add(DaysL);
 		f.add(SundayCheck);
 		f.add(MondayCheck);
 		f.add(TuesdayCheck);
@@ -132,8 +129,8 @@ public class OfferingsInterface {
 		f.add(EndTimeL);
 
 		// Offerings button
-		JButton Back = new JButton("Add Another Course");
-		Back.setBounds(335, 600, 140, 40);
+		JButton Back = new JButton("Add Next Course");
+		Back.setBounds(335, 650, 140, 40);
 
 		// Offerings label which will show event after button clicked
 		JLabel OfferingsLabel = new JLabel();
@@ -141,7 +138,7 @@ public class OfferingsInterface {
 
 		// Submit button
 		JButton Submit = new JButton("Submit");
-		Submit.setBounds(335, 650, 140, 40);
+		Submit.setBounds(335, 600, 140, 40);
 
 		// Submit label which will show event after button clicked
 		JLabel SubmitLabel = new JLabel();
@@ -154,6 +151,7 @@ public class OfferingsInterface {
 		TrackA.setOpaque(false);
 		JRadioButton TrackB = new JRadioButton("Track B?");
 		TrackB.setOpaque(false);
+		JRadioButton noneSelected = new JRadioButton("");
 		Full.setBounds(10, 250, 100, 30);
 		TrackA.setBounds(110, 250, 100, 30);
 		TrackB.setBounds(210, 250, 100, 30);
@@ -161,6 +159,7 @@ public class OfferingsInterface {
 		bg.add(Full);
 		bg.add(TrackA);
 		bg.add(TrackB);
+		bg.add(noneSelected);
 		f.add(Full);
 		f.add(TrackA);
 		f.add(TrackB);
@@ -191,15 +190,27 @@ public class OfferingsInterface {
 						getCourseType( Full, TrackA, TrackB ),
 						getDaysList()
 						);
-				System.out.println("Hello");
-
+				
+				bg.setSelected(noneSelected.getModel(), true);;
+				CRNLB.setText("");
+				StartTimeLB.setText("");
+				EndTimeLB.setText("");
+				Full.setSelected(false);
+				TrackA.setSelected(false);
+				TrackB.setSelected(false);
+				SundayCheck.setSelected(false);
+				MondayCheck.setSelected(false);
+				TuesdayCheck.setSelected(false);
+				WednesdayCheck.setSelected(false);
+				ThursdayCheck.setSelected(false);
+				FridayCheck.setSelected(false);
+				SaturdayCheck.setSelected(false);
 			}
 		});
 		// Sunday listener
 		SundayCheck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Sunday selected");
 
 			}
 		});
@@ -207,7 +218,6 @@ public class OfferingsInterface {
 		MondayCheck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Monday selected");
 
 			}
 		});
@@ -215,7 +225,6 @@ public class OfferingsInterface {
 		TuesdayCheck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Tuesday selected");
 
 			}
 		});
@@ -223,7 +232,6 @@ public class OfferingsInterface {
 		WednesdayCheck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Wednesday selected");
 
 			}
 		});
@@ -231,7 +239,6 @@ public class OfferingsInterface {
 		ThursdayCheck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Thursday selected");
 
 			}
 		});
@@ -239,7 +246,6 @@ public class OfferingsInterface {
 		FridayCheck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Friday selected");
 
 			}
 		});
@@ -247,7 +253,6 @@ public class OfferingsInterface {
 		SaturdayCheck.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Saturday selected");
 
 			}
 		});
@@ -255,7 +260,6 @@ public class OfferingsInterface {
 		Full.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Full selected");
 
 			}
 		});
@@ -263,7 +267,6 @@ public class OfferingsInterface {
 		TrackA.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Track A selected");
 
 			}
 		});
@@ -271,7 +274,6 @@ public class OfferingsInterface {
 		TrackB.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Track B selected");
 
 			}
 		});

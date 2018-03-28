@@ -65,27 +65,11 @@ public class AddInterface {
 		f.add(CreditEx);
 		f.add(CreditHoursL);
 
-		// Add Another button
-		JButton Add = new JButton("Add Another");
-		Add.setBounds(10, 450, 160, 40);
-
-		// Add label which will show event after button clicked
-		JLabel AddLabel = new JLabel();
-		AddLabel.setBounds(10, 500, 100, 100);
-
-		// Display button
-		JButton Display = new JButton("Display");
-		Display.setBounds(10, 500, 160, 40);
-
-		// Display label which will show event after button clicked
-		JLabel DisplayLabel = new JLabel();
-		DisplayLabel.setBounds(10, 650, 300, 100);
-
 		// Submit button
 		JButton Submit = new JButton("Submit");
 		Submit.setBounds(10, 350, 160, 40);
 
-		// Goes to the Load PAge
+		// Goes to the Load Page
 		JButton CurrentListing = new JButton("See Current Classes");
 		CurrentListing.setBounds(10, 400, 160, 40);
 
@@ -99,12 +83,6 @@ public class AddInterface {
 		PriorityCheck.setBounds(10, 220, 100, 30);
 
 		// Main add to frame
-		f.add(AddLabel);
-		f.add(Add);
-		f.add(DisplayLabel);
-		f.add(Display);
-		//f.add(OfferingsLabel);
-		//f.add(Offerings);
 		f.add(SubmitLabel);
 		f.add(Submit);
 		f.add(PriorityCheck);
@@ -112,58 +90,17 @@ public class AddInterface {
 		f.setSize(800, 800);
 		f.setLayout(null);
 		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
-		// Add Button listener
-		Add.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				AddLabel.setText("Add Another Schedule");
-				
-				try {
-					JFrame AddFrame = new JFrame("AddFrame");
-					AddFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					AddFrame.getContentPane().add(AddFrame, new AddInterface());
-					AddFrame.setSize(800, 800);
-					AddFrame.pack();
-					AddFrame.setVisible(true);
-				} catch(Exception IllegalArgumentException) {
-					
-				}
-
-			}
-		});
-
-		// Display Button listener
-		Display.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				DisplayLabel.setText("Display Schedule");
-				System.out.println("Display Clicked");
-				try {
-					JFrame DisplayFrame = new JFrame("DisplayFrame");
-					DisplayFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					DisplayFrame.getContentPane().add(DisplayFrame, new DisplayInterface());
-					DisplayFrame.setSize(1500, 1500);
-					DisplayFrame.pack();
-					DisplayFrame.setVisible(true);
-				} catch(Exception IllegalArgumentException) {
-				
-				}
-				
-			}
-		});
 		// Priority Check listener
 		PriorityCheck.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Priority Checked");
 
 			}
 		});
+		
 		// Submit listener
 		Submit.addActionListener(new ActionListener() {
 
@@ -175,7 +112,12 @@ public class AddInterface {
 				course temp = new course(DeptLB.getText(), LevelLB.getText(), convertedCreditNumber,
 						PriorityCheck.isSelected());
 				DraftInterface.getCourseList().add(temp);
-
+				
+				DeptLB.setText("");
+				LevelLB.setText("");
+				CreditHoursLB.setText("");
+				PriorityCheck.setSelected(false);
+				
 				try {
 					JFrame OfferingsFrame = new JFrame("OfferingsFrame");
 					OfferingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -189,6 +131,7 @@ public class AddInterface {
 				
 			}
 		});
+		
 		// CurrentListing listener
 		CurrentListing.addActionListener(new ActionListener() {
 

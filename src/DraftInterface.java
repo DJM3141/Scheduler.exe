@@ -62,10 +62,6 @@ public class DraftInterface {
 		JButton New = new JButton("New");
 		New.setBounds(250, 450, 140, 40);
 
-		// New label which will show event after button clicked
-		JLabel NewLabel = new JLabel();
-		NewLabel.setBounds(10, 500, 100, 100);
-
 		// Load button
 		JButton Load = new JButton("Load");
 		Load.setBounds(450, 450, 140, 40);
@@ -82,7 +78,6 @@ public class DraftInterface {
 		f.add(AppInfo5);
 		f.add(AppInfo6);
 		f.add(AppInfo7);
-		f.add(NewLabel);
 		f.add(New);
 		f.add(LoadLabel);
 		f.add(Load);
@@ -96,7 +91,6 @@ public class DraftInterface {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				NewLabel.setText("New Schedule");
 				
 				try {
 					JFrame AddFrame = new JFrame("AddFrame");
@@ -117,7 +111,6 @@ public class DraftInterface {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				LoadLabel.setText("Loading... Please Wait");
 				
 				try {
 					JFrame LoadFrame = new JFrame("LoadFrame");

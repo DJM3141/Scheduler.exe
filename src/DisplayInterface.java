@@ -10,7 +10,7 @@ import javax.swing.SwingUtilities;
 
 public class DisplayInterface {
 	DisplayInterface() {
-		JFrame f = new JFrame("DisplayInterface");
+		JFrame f = new JFrame("Display the Schedule");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
 		ImageIcon img = new ImageIcon("dog1.png.png");
 		f.setIconImage(img.getImage());
@@ -41,7 +41,7 @@ public class DisplayInterface {
 		f.setSize(800, 800);
 		f.setLayout(null);
 		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 		// New Button listener
 		Continue.addActionListener(new ActionListener() {

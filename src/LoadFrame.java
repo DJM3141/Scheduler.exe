@@ -40,19 +40,6 @@ public class LoadFrame {
 			}
 		}
 		
-		/*
-		for(int i = 0; i < temp.size(); i++) {
-			courseList = courseList + temp.get(i).getDepartment() + temp.get(i).getLevel() + "     " 
-					+ temp.get(i).getCreditAmount() + "     IsPriority:  " + temp.get(i).getPriority() 
-					+ "\n";
-			for(int j = 0; j < temp.get(i).getOfferings().size(); j++) {
-				courseList = courseList + "    From: " + temp.get(i).getOfferings().get(j)
-						.getStartTime() + " to " + temp.get(i).getOfferings().get(j)
-						.getEndTime() + " on " + temp.get(i).getOfferings().get(j)
-						.printDays() + "\n";
-			}
-		}*/
-		
 		CurrentCourseList.setText(courseList);
 		CurrentCourseList.setOpaque(true);
 		CurrentCourseList.setBounds(225, 200, 300, 300);
@@ -70,10 +57,6 @@ public class LoadFrame {
 		JButton Save = new JButton("Save");
 		Save.setBounds(400, 550, 140, 40);
 
-		// Save label which will show event after button clicked
-		JLabel SaveLabel = new JLabel();
-		SaveLabel.setBounds(10, 550, 300, 100);
-
 		// Display button
 		JButton Display = new JButton("Display");
 		Display.setBounds(300, 600, 140, 40);
@@ -86,7 +69,6 @@ public class LoadFrame {
 		f.add(ClassInfo);
 		f.add(AddLabel);
 		f.add(Add);
-		f.add(SaveLabel);
 		f.add(Save);
 		f.add(DisplayLabel);
 		f.add(Display);
@@ -94,7 +76,7 @@ public class LoadFrame {
 		f.setSize(800, 800);
 		f.setLayout(null);
 		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 		// Add Button listener
 		Add.addActionListener(new ActionListener() {
@@ -122,7 +104,6 @@ public class LoadFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				SaveLabel.setText("File Saved");
 				
 				// Prints the File in the Eclipse Project Directory
 				PrintWriter pw = null;
