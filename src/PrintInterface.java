@@ -17,6 +17,8 @@ public class PrintInterface {
 	PrintInterface() {
 		JFrame f = new JFrame("PrintInterface");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
+		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setIconImage(img.getImage());
 
 
 		// Main add to frame
