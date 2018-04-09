@@ -42,7 +42,7 @@ public class LoadFrame {
 		
 		CurrentCourseList.setText(courseList);
 		CurrentCourseList.setOpaque(true);
-		CurrentCourseList.setBounds(225, 200, 300, 300);
+		CurrentCourseList.setBounds(175, 200, 400, 300);
 		CurrentCourseList.setEditable(false);
 		
 		// Add button

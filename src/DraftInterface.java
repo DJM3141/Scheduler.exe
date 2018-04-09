@@ -60,15 +60,7 @@ public class DraftInterface {
 
 		// New button
 		JButton New = new JButton("New");
-		New.setBounds(250, 450, 140, 40);
-
-		// Load button
-		JButton Load = new JButton("Load");
-		Load.setBounds(450, 450, 140, 40);
-
-		// Load label which will show event after button clicked
-		JLabel LoadLabel = new JLabel();
-		LoadLabel.setBounds(10, 550, 300, 100);
+		New.setBounds(325, 450, 140, 40);
 
 		// Main add to frame
 		f.add(AppInfo);
@@ -79,8 +71,6 @@ public class DraftInterface {
 		f.add(AppInfo6);
 		f.add(AppInfo7);
 		f.add(New);
-		f.add(LoadLabel);
-		f.add(Load);
 		f.setSize(800, 800);
 		f.setLayout(null);
 		f.setVisible(true);
@@ -103,27 +93,6 @@ public class DraftInterface {
 					
 				}
 
-			}
-		});
-
-		// Load Button Listener
-		Load.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				
-				try {
-					JFrame LoadFrame = new JFrame("LoadFrame");
-					LoadFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					LoadFrame.getContentPane().add(LoadFrame, new LoadFrame());
-					LoadFrame.setSize(1500, 1500);
-					LoadFrame.pack();
-					LoadFrame.setVisible(true);
-					ImageIcon img = new ImageIcon("dog1.png.png");
-					LoadFrame.setIconImage(img.getImage());
-				} catch(Exception IllegalArgumentException) {
-					
-				}
 			}
 		});
 

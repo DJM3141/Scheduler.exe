@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -105,8 +106,12 @@ public class PrintInterface {
 		CurrentCourseList.setEditable(false);
 		f.add(CurrentCourseList);
 		
-		// Prints out final schedule to the console
+		/*
+		JScrollPane scrollV = new JScrollPane (CurrentCourseList, 
+				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		f.add(scrollV);*/
 		
+		// Prints out final schedule to the console
 		for (int scheduleNumber = 0; scheduleNumber < finalData.size(); scheduleNumber++) {
 			System.out.println("Schedule " + (scheduleNumber + 1));
 			for (int day = 0; day < 7; day++) {
