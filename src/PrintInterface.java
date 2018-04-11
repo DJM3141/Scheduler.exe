@@ -104,12 +104,11 @@ public class PrintInterface {
 		CurrentCourseList.setOpaque(true);
 		CurrentCourseList.setBounds(225, 200, 300, 300);
 		CurrentCourseList.setEditable(false);
-		f.add(CurrentCourseList);
 		
-		/*
-		JScrollPane scrollV = new JScrollPane (CurrentCourseList, 
-				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		f.add(scrollV);*/
+		JScrollPane scrollV = new JScrollPane (CurrentCourseList); 
+		scrollV.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollV.setBounds(175, 200, 400, 300);
+		f.add(scrollV);
 		
 		// Prints out final schedule to the console
 		for (int scheduleNumber = 0; scheduleNumber < finalData.size(); scheduleNumber++) {

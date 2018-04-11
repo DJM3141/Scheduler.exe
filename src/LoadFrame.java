@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -9,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -44,6 +46,12 @@ public class LoadFrame {
 		CurrentCourseList.setOpaque(true);
 		CurrentCourseList.setBounds(175, 200, 400, 300);
 		CurrentCourseList.setEditable(false);
+		CurrentCourseList.setVisible(true);
+		CurrentCourseList.setLineWrap(true);
+		
+		JScrollPane scrollV = new JScrollPane (CurrentCourseList); 
+		scrollV.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollV.setBounds(175, 200, 400, 300);
 		
 		// Add button
 		JButton Add = new JButton("Add");
@@ -72,7 +80,7 @@ public class LoadFrame {
 		f.add(Save);
 		f.add(DisplayLabel);
 		f.add(Display);
-		f.add(CurrentCourseList);
+		f.add(scrollV);
 		f.setSize(800, 800);
 		f.setLayout(null);
 		f.setVisible(true);
