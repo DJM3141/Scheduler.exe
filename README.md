@@ -1,20 +1,34 @@
 # Scheduler.exe
 Overview: Scheduler will take user inputted courses with any number of offerings and create all possible schedules with the given course list that considers priority courses, user credit preference, and user time preferences.
 
-Disclaimer: Not all functions have been implemented yet, and little has been tested for accuracy as this will take place durring sprint 2, scheduler logic has not yet been connected to interface so it will not run yet.
 
-How to Use (As if all functions were implemented)
   1) Run draftInterface and click add new course
+  
+  X)The first interface displays a very brrief description of our project and our names as developers. The user should hit the "New" button to start creating a new instance.
   2) Enter in information for course
     A) Course Department  (Ex. CS, MA, PH, ect.)
     B) Course Level       (Ex. 3141, 2770, 3220, ect.)
     C) Credit Amount      (Ex. 3, 2, 1, 0.5, ect.)
     D) Priority           (Check to make course a priority)
-  3) Click add new offering and enter in information for offering
+    If the text fields are left blank, nothing will occur.
+    
+    Once the user hits submit, it will open up an offerings interface to attach to the current course. Or they can see all current classes they have currenlty added, which will open up the load interface.
+    
+  3) Click submit and enter in information for offering
     A) Course Number      (Ex. 37452, 71625, ect.)
-    B) Start Time         (Ex. 0900, 1400, 1530 ect.)
-    C) End Time           (Ex. 1000, 1455, 1600 ect.)
-    D) Type               (Select if course is full semester or track A/B)
-  4) Save offering and repeat step 3 until all offerings for course are entered.
-  5) Save course and repeat steps 2-4 until all courses are added.
-  6) Click to create schedules.
+    B) Click the check boxes for each day of the week the course is offered.
+    C) Start Time         (Ex. 0900, 1400, 1530 ect.)
+    D) End Time           (Ex. 1000, 1455, 1600 ect.)
+    E) Type               (Select if course is full semester or track A/B)
+  4) Submit offering, which will then clear the text fields,and repeat step 3 until all offerings for course are entered.
+  5) add course and repeat steps 2-4 until all courses are added.
+  6) Click See current classes to open the load interface.
+  
+  The add button returns you back to step 2.
+  The save button.....
+  The display button brings up a interface to enter a set amount of max credits that is desired.
+  
+  7) upon entering the max credits desired, the user will hit continue and it will bring up a window in print interface of the sorted 
+  schedules. The program also created a text file called "Finalized class list"
+  
+  8> the finalized class list contains all the schedules of prioritzed classes, with any possible filler classes that will fit into the schedule, along with a list of the CRNS in a row for easy upload to banweb.
