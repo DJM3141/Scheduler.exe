@@ -26,7 +26,7 @@ Overview: Scheduler will take user inputted courses with any number of offerings
   7) Click See current classes to open the load interface.
   
   The add button returns you back to step 2.
-  The save button.....
+  The save button saves the current classes as a text file called "class list"
   The display button brings up a interface to enter a set amount of max credits that is desired.
   
   8) upon entering the max credits desired, the user will hit continue and it will bring up a window in print interface of the sorted 
