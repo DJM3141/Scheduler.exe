@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -39,29 +40,24 @@ public class PrintInterface {
 			//Print template
 			pw.println("******************************************************************************************");
 			pw.println("            			Scheduler.exe was developed by:");
-			pw.println("					               Matt L.");
-			pw.println("			                       Joell E.");
-			pw.println("			                       Dan R.");
-			pw.println("");
-			pw.println("");
+			pw.println("            			Matt L., Joell E., and Dan R.");
+			pw.println();
+			pw.println();
 			pw.println("This program was developed to help assist you in creating multiple schedules");
-			pw.println("for you courses each semester. It takes into account your priority class/departmentals");
+			pw.println("for you courses each semester. It takes into account your priority class/departmental");
 			pw.println("and fills in any non priority classes if they fit.");
-			pw.println("");
+			pw.println();
 			pw.println("Each calendar printed out goes day by day and includes a list of the CRNS for easy use");
 			pw.println("to register. Feel free to edit the text file and add semester names or class names.");
 			pw.println("******************************************************************************************");
-			pw.println("");
-			
-			
-			
-			
-			
-			
+			pw.println();
 			
 			for (int scheduleNumber = 0; scheduleNumber < finalData.size(); scheduleNumber++) {
 				pw.println("Schedule " + (scheduleNumber + 1));
 				pw.println();
+				
+				ArrayList<String> crns = new ArrayList<String>();
+				
 				for (int day = 0; day < 7; day++) {
 					if (day == 0)
 						pw.println("Sunday");
@@ -77,12 +73,24 @@ public class PrintInterface {
 						pw.println("Friday");
 					else if (day == 6)
 						pw.println("Saturday");
-					for (int j = 0; j < finalData.get(scheduleNumber).getOfferingsList(day).size(); j++)
-						pw.println(finalData.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
+					for (int j = 0; j < finalData.get(scheduleNumber).getOfferingsList(day).size(); j++){
+						pw.println(finalData.get(scheduleNumber).getOfferingsList(day).get(j).getDepartment() + finalData.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
 								+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getStartTime() + " - "
 								+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getEndTime());
+						
+						if (!crns.contains(finalData.get(scheduleNumber).getOfferingsList(day).get(j).getCourseNumber())) {
+							crns.add(finalData.get(scheduleNumber).getOfferingsList(day).get(j).getCourseNumber());
+						}
+						
+					}
 					pw.println();
 				}
+				pw.println();
+				pw.println("CRNS For This Schedule:");
+				for (int i = 0; i < crns.size(); i++) {
+					pw.println(crns.get(i));
+				}
+				pw.println();
 				pw.println();
 			}
 			
@@ -114,9 +122,10 @@ public class PrintInterface {
 				else if (day == 6)
 					courseList = courseList + "Saturday\n\n";
 				for (int j = 0; j < finalData.get(scheduleNumber).getOfferingsList(day).size(); j++)
-					courseList = courseList + finalData.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
+					courseList = courseList + finalData.get(scheduleNumber).getOfferingsList(day).get(j).getDepartment() + finalData.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
 							+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getStartTime() + " - "
 							+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getEndTime() + "\n";
+				courseList = courseList + "\n";
 			}
 			courseList = courseList + "\n\n";
 		}
@@ -125,7 +134,13 @@ public class PrintInterface {
 		CurrentCourseList.setOpaque(true);
 		CurrentCourseList.setBounds(225, 200, 300, 300);
 		CurrentCourseList.setEditable(false);
-		f.add(CurrentCourseList);
+		CurrentCourseList.setVisible(true);
+		CurrentCourseList.setLineWrap(true);
+		
+		JScrollPane scrollV = new JScrollPane (CurrentCourseList); 
+		scrollV.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollV.setBounds(225, 200, 300, 300);
+		f.add(scrollV);
 		
 		// Prints out final schedule to the console
 		
@@ -147,11 +162,12 @@ public class PrintInterface {
 				else if (day == 6)
 					System.out.println("Saturday");
 				for (int j = 0; j < finalData.get(scheduleNumber).getOfferingsList(day).size(); j++)
-					System.out.println(finalData.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
+					System.out.println(finalData.get(scheduleNumber).getOfferingsList(day).get(j).getDepartment() + finalData.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
 							+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getStartTime() + " - "
 							+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getEndTime());
 				System.out.println();
 			}
+			System.out.println();
 		}
 		
 	}
