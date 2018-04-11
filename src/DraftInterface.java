@@ -1,3 +1,4 @@
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -24,8 +25,8 @@ public class DraftInterface {
 	
 	DraftInterface() {
 		JFrame f = new JFrame("Scheduler.exe");
-		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
-		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setContentPane(new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Background3.jpg")))));
+		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("dog1.png.png")));
 		f.setIconImage(img.getImage());
 
 		// Application info Text

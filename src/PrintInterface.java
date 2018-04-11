@@ -1,4 +1,5 @@
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -20,8 +21,8 @@ public class PrintInterface {
 	PrintInterface() {
 		double userCredits = DisplayInterface.getUserMaxCredits();
 		JFrame f = new JFrame("PrintInterface");
-		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
-		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setContentPane(new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Background3.jpg")))));
+		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("dog1.png.png")));
 		f.setIconImage(img.getImage());
 
 

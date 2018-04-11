@@ -2,6 +2,7 @@
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -35,8 +36,8 @@ public class OfferingsInterface {
 	
 	OfferingsInterface() {
 		JFrame f = new JFrame("Add an Offering");
-		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
-		ImageIcon img = new ImageIcon("dog1.png.png");
+		f.setContentPane(new JLabel(new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Background3.jpg")))));
+		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("dog1.png.png")));
 		f.setIconImage(img.getImage());
 		
 		// Class
