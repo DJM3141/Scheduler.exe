@@ -1,3 +1,0 @@
-CS3141     3.0     IsPriority:  true
-EC3400     3.0     IsPriority:  false
-CS1000     1.0     IsPriority:  true
