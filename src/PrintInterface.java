@@ -10,7 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -37,6 +36,28 @@ public class PrintInterface {
 		PrintWriter pw = null;
 		try {
 			pw = new PrintWriter(new File("Finalized Class List.txt"));
+			//Print template
+			pw.println("******************************************************************************************");
+			pw.println("            			Scheduler.exe was developed by:");
+			pw.println("					               Matt L.");
+			pw.println("			                       Joell E.");
+			pw.println("			                       Dan R.");
+			pw.println("");
+			pw.println("");
+			pw.println("This program was developed to help assist you in creating multiple schedules");
+			pw.println("for you courses each semester. It takes into account your priority class/departmentals");
+			pw.println("and fills in any non priority classes if they fit.");
+			pw.println("");
+			pw.println("Each calendar printed out goes day by day and includes a list of the CRNS for easy use");
+			pw.println("to register. Feel free to edit the text file and add semester names or class names.");
+			pw.println("******************************************************************************************");
+			pw.println("");
+			
+			
+			
+			
+			
+			
 			
 			for (int scheduleNumber = 0; scheduleNumber < finalData.size(); scheduleNumber++) {
 				pw.println("Schedule " + (scheduleNumber + 1));
@@ -104,13 +125,10 @@ public class PrintInterface {
 		CurrentCourseList.setOpaque(true);
 		CurrentCourseList.setBounds(225, 200, 300, 300);
 		CurrentCourseList.setEditable(false);
-		
-		JScrollPane scrollV = new JScrollPane (CurrentCourseList); 
-		scrollV.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollV.setBounds(175, 200, 400, 300);
-		f.add(scrollV);
+		f.add(CurrentCourseList);
 		
 		// Prints out final schedule to the console
+		
 		for (int scheduleNumber = 0; scheduleNumber < finalData.size(); scheduleNumber++) {
 			System.out.println("Schedule " + (scheduleNumber + 1));
 			for (int day = 0; day < 7; day++) {
