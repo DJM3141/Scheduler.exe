@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -17,7 +18,7 @@ import javax.swing.SwingUtilities;
 
 public class PrintInterface {
 	PrintInterface() {
-		int userCredits = 18; //FIXXXXXXXXXX
+		double userCredits = DisplayInterface.getUserMaxCredits();
 		JFrame f = new JFrame("PrintInterface");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
 		ImageIcon img = new ImageIcon("dog1.png.png");
@@ -33,6 +34,15 @@ public class PrintInterface {
 		// Code for printing out the Final Schedule
 		scheduler newScheduler = new scheduler(DraftInterface.getCourseList()); 
 		ArrayList<schedule> finalData = newScheduler.createSchedules(userCredits);
+		
+		if (finalData.isEmpty()) {
+			if (userCredits < newScheduler.getPriorityCreditSum()) {
+				JOptionPane.showMessageDialog(null, "Error: Cannot add all priority classes due to too many credits in priority list for the amount of desired credits");
+			} else {
+				JOptionPane.showMessageDialog(null, "Error: Cannot add all priority classes due to conflicting classes");
+			}
+			return;
+		}
 		
 		// Prints out the Final Schedule to a File
 		PrintWriter pw = null;
@@ -87,6 +97,15 @@ public class PrintInterface {
 					pw.println();
 				}
 				pw.println();
+				
+				pw.println("Available Offerings");
+				for (int index = 0; index < finalData.get(scheduleNumber).getFillerList().size(); index++) {
+					pw.println(finalData.get(scheduleNumber).getFillerList().get(index).getDepartment() + finalData.get(scheduleNumber).getFillerList().get(index).getLevel()
+							+ "     " + finalData.get(scheduleNumber).getFillerList().get(index).getStartTime() + " - "
+							+ finalData.get(scheduleNumber).getFillerList().get(index).getEndTime() + "   CRN: " + finalData.get(scheduleNumber).getFillerList().get(index).getCourseNumber());
+				}
+				pw.println();
+				
 				pw.println("CRNS For This Schedule:");
 				for (int i = 0; i < crns.size(); i++) {
 					pw.println(crns.get(i));
@@ -129,6 +148,14 @@ public class PrintInterface {
 				courseList = courseList + "\n";
 			}
 			courseList = courseList + "\n\n";
+			
+			courseList = courseList + "Available Offerings\n";
+			for (int index = 0; index < finalData.get(scheduleNumber).getFillerList().size(); index++) {
+				courseList = courseList + finalData.get(scheduleNumber).getFillerList().get(index).getDepartment() + finalData.get(scheduleNumber).getFillerList().get(index).getLevel()
+						+ "     " + finalData.get(scheduleNumber).getFillerList().get(index).getStartTime() + " - "
+						+ finalData.get(scheduleNumber).getFillerList().get(index).getEndTime() + "   CRN: " + finalData.get(scheduleNumber).getFillerList().get(index).getCourseNumber() + "\n";
+			}
+			courseList = courseList + "\n\n";
 		}
 		
 		CurrentCourseList.setText(courseList);
@@ -143,35 +170,8 @@ public class PrintInterface {
 		scrollV.setBounds(225, 200, 300, 300);
 		f.add(scrollV);
 		
-		// Prints out final schedule to the console
-		
-		for (int scheduleNumber = 0; scheduleNumber < finalData.size(); scheduleNumber++) {
-			System.out.println("Schedule " + (scheduleNumber + 1));
-			for (int day = 0; day < 7; day++) {
-				if (day == 0)
-					System.out.println("Sunday");
-				else if (day == 1)
-					System.out.println("Monday");
-				else if (day == 2)
-					System.out.println("Tuesday");
-				else if (day == 3)
-					System.out.println("Wednesday");
-				else if (day == 4)
-					System.out.println("Thursday");
-				else if (day == 5)
-					System.out.println("Friday");
-				else if (day == 6)
-					System.out.println("Saturday");
-				for (int j = 0; j < finalData.get(scheduleNumber).getOfferingsList(day).size(); j++)
-					System.out.println(finalData.get(scheduleNumber).getOfferingsList(day).get(j).getDepartment() + finalData.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
-							+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getStartTime() + " - "
-							+ finalData.get(scheduleNumber).getOfferingsList(day).get(j).getEndTime());
-				System.out.println();
-			}
-			System.out.println();
-		}
-		
 	}
+	
 	public static void main(String[] args) {
 		new PrintInterface();
 	}

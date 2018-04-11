@@ -167,6 +167,10 @@ public class scheduler {
 			return true;
 	}
 
+	public double getPriorityCreditSum() {
+		return priorityCreditSum;
+	}
+	
 	private void addFillers() {
 		for (int scheduleIndex = 0; scheduleIndex < schedules.size(); scheduleIndex++)
 			for (int courseIndex = 0; courseIndex < fillerList.size(); courseIndex++)

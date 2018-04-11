@@ -1,5 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -9,6 +10,13 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 public class DisplayInterface {
+	
+	public static double userMaxCredits = 0;
+	
+	public static double getUserMaxCredits() {
+		return userMaxCredits;
+	}
+	
 	DisplayInterface() {
 		JFrame f = new JFrame("Display the Schedule");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
@@ -50,6 +58,9 @@ public class DisplayInterface {
 			public void actionPerformed(ActionEvent arg0) {
 
 				try {
+					
+					userMaxCredits = Double.parseDouble(MaxCreditLB.getText());
+					
 					JFrame PrintFrame = new JFrame("PrintFrame");
 					PrintFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					PrintFrame.getContentPane().add(PrintFrame, new PrintInterface());
