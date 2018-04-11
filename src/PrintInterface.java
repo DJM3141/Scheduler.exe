@@ -17,6 +17,7 @@ import javax.swing.SwingUtilities;
 
 public class PrintInterface {
 	PrintInterface() {
+		int userCredits = 18; //FIXXXXXXXXXX
 		JFrame f = new JFrame("PrintInterface");
 		f.setContentPane(new JLabel(new ImageIcon("Background3.jpg")));
 		ImageIcon img = new ImageIcon("dog1.png.png");
@@ -31,7 +32,7 @@ public class PrintInterface {
 		
 		// Code for printing out the Final Schedule
 		scheduler newScheduler = new scheduler(DraftInterface.getCourseList()); 
-		ArrayList<schedule> finalData = newScheduler.createSchedules();
+		ArrayList<schedule> finalData = newScheduler.createSchedules(userCredits);
 		
 		// Prints out the Final Schedule to a File
 		PrintWriter pw = null;
