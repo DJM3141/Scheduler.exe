@@ -76,6 +76,10 @@ public class course {
 			scheduleIndex++;
 		
 	}
+	
+	public void resetIndex() {
+		scheduleIndex = 0;
+	}
 	//End Setters
 	
 	//---------------------------------------------------------------------------------------------------------

@@ -11,6 +11,9 @@ public class scheduler {
 	ArrayList<course> priorityList = new ArrayList<course>();
 	ArrayList<course> sortedPriorityList = new ArrayList<course>();
 	ArrayList<course> fillerList = new ArrayList<course>();
+	ArrayList<course> sortedFillerList = new ArrayList<course>();
+	private double userCredits = 0;
+	private double priorityCreditSum = 0;
 	// End Variables
 
 	// ---------------------------------------------------------------------------------------------------------
@@ -34,10 +37,12 @@ public class scheduler {
 	 * 
 	 * @return schedule list
 	 */
-	public ArrayList<schedule> createSchedules() {
+	public ArrayList<schedule> createSchedules(double credits) {
+		userCredits = credits;
 		sortByOfferings();
-		constructPriorityBase();
-		addFillers();
+		if (checkCreditCap())
+			if (constructPriorityBase() && priorityCreditSum < credits)
+				addFillers();
 		return schedules;
 	}
 
@@ -46,13 +51,11 @@ public class scheduler {
 	 * @return false if user selected credits is less than credits required by
 	 *         sum of priority classes
 	 */
-	public boolean checkCreditCap(double userCredits) {
-		double creditSum = 0;
-
+	public boolean checkCreditCap() {
 		for (int i = 0; i < priorityList.size(); i++)
-			creditSum += priorityList.get(i).getCreditAmount();
+			priorityCreditSum += priorityList.get(i).getCreditAmount();
 
-		if (userCredits < creditSum)
+		if (userCredits < priorityCreditSum)
 			return false;
 		else
 			return true;
@@ -63,6 +66,9 @@ public class scheduler {
 
 	// Helpers
 	private int minOfferingAmount() {
+		if (priorityList.size() == 0)
+			return 0;
+
 		int minAmount = priorityList.get(0).amountOfOfferings();
 		for (int i = 0; i < priorityList.size(); i++)
 			if (priorityList.get(i).amountOfOfferings() < minAmount)
@@ -73,6 +79,7 @@ public class scheduler {
 
 	private void sortByOfferings() {
 		int min = minOfferingAmount();
+
 		while (sortedPriorityList.size() != priorityList.size()) {
 			for (int i = 0; i < priorityList.size(); i++)
 				if (priorityList.get(i).amountOfOfferings() == min)
@@ -117,7 +124,7 @@ public class scheduler {
 
 					// Moves on to next offering in current course and tries
 					// again
-					if (!(sortedPriorityList.get(courseIndex).indexIsLast())) {
+					else if (!(sortedPriorityList.get(courseIndex).indexIsLast())) {
 						sortedPriorityList.get(courseIndex).incIndex();
 					}
 					courseIndex--;
@@ -161,7 +168,11 @@ public class scheduler {
 	}
 
 	private void addFillers() {
-		// To Do
+		for (int scheduleIndex = 0; scheduleIndex < schedules.size(); scheduleIndex++)
+			for (int courseIndex = 0; courseIndex < fillerList.size(); courseIndex++)
+				for (int offeringIndex = 0; offeringIndex < fillerList.get(courseIndex).amountOfOfferings(); offeringIndex++)
+					schedules.get(scheduleIndex).addFiller(fillerList.get(courseIndex).getOffering(offeringIndex));
 	}
+
 	// End Helpers
 }

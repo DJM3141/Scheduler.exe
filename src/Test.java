@@ -8,7 +8,7 @@ public class Test {
 
 		for (int i = 0; i < 7; i++)
 			days.add(false);
-		
+
 		// CS 3331
 		days.set(0, false);
 		days.set(1, true);
@@ -41,7 +41,7 @@ public class Test {
 		days.set(6, false);
 		testCourseList1.add(new course("CS", "3000", 2, true));
 		testCourseList1.get(2).addOffering("82562", 1205, 1255, courseType.FULL, days);
-	
+
 		// CS 3425
 		days.set(0, false);
 		days.set(1, false);
@@ -67,12 +67,25 @@ public class Test {
 		testCourseList1.get(4).addOffering("85907", 1605, 1720, courseType.FULL, days);
 		testCourseList1.get(4).addOffering("84721", 905, 920, courseType.FULL, days);
 
+		// CS 4311
+		days.set(0, false);
+		days.set(1, false);
+		days.set(2, true);
+		days.set(3, false);
+		days.set(4, true);
+		days.set(5, false);
+		days.set(6, false);
+		testCourseList1.add(new course("CS", "4311", 3, false));
+		testCourseList1.get(5).addOffering("43110", 1105, 1220, courseType.FULL, days);
+		testCourseList1.get(5).addOffering("43110", 1905, 2020, courseType.FULL, days);
+
 		scheduler testScheduler = new scheduler(testCourseList1);
-		testSchedules = testScheduler.createSchedules();
-		
-		//Test Print
+		testSchedules = testScheduler.createSchedules(17);
+
+		// Test Print
 		for (int scheduleNumber = 0; scheduleNumber < testSchedules.size(); scheduleNumber++) {
 			System.out.println("Schedule " + (scheduleNumber + 1));
+			System.out.println("Credits: " + testSchedules.get(scheduleNumber).getCreditTotal() + "\n");
 			for (int day = 0; day < 7; day++) {
 				if (day == 0)
 					System.out.println("Sunday");
@@ -89,11 +102,18 @@ public class Test {
 				else if (day == 6)
 					System.out.println("Saturday");
 				for (int j = 0; j < testSchedules.get(scheduleNumber).getOfferingsList(day).size(); j++)
-					System.out.println(testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getLevel() + "      "
-							+ testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getStartTime() + " - "
-							+ testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getEndTime());
+					System.out.println(testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getLevel()
+							+ "      " + testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getStartTime()
+							+ " - " + testSchedules.get(scheduleNumber).getOfferingsList(day).get(j).getEndTime());
 				System.out.println();
 			}
+			System.out.println("Available Offerings");
+			for (int index = 0; index < testSchedules.get(scheduleNumber).getFillerList().size(); index++) {
+				System.out.println(testSchedules.get(scheduleNumber).getFillerList().get(index).getCourseNumber()
+						+ "     " + testSchedules.get(scheduleNumber).getFillerList().get(index).getStartTime() + " - "
+						+ testSchedules.get(scheduleNumber).getFillerList().get(index).getEndTime());
+			}
+			System.out.println();
 		}
 	}
 }
