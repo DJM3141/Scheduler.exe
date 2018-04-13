@@ -1,14 +1,12 @@
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.JCheckBox;
 
 public class AddInterface {
@@ -19,7 +17,7 @@ public class AddInterface {
 		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("dog1.png.png")));
 		f.setIconImage(img.getImage());
 		
-		// Class
+		// Class Label
 		JLabel Class = new JLabel();
 		Class.setText("New Class");
 		Class.setBounds(10, 10, 200, 100);
@@ -29,6 +27,7 @@ public class AddInterface {
 		JLabel DeptL = new JLabel();
 		DeptL.setText("Dept :");
 		DeptL.setBounds(10, 50, 200, 100);
+		
 		// Dept Example Label
 		JLabel DeptEx = new JLabel();
 		DeptEx.setText("Example: CS");
@@ -39,6 +38,7 @@ public class AddInterface {
 		JLabel LevelL = new JLabel();
 		LevelL.setText("Level :");
 		LevelL.setBounds(10, 100, 200, 100);
+		
 		// Level Example Label
 		JLabel LevelEx = new JLabel();
 		LevelEx.setText("Example: 3141");
@@ -49,6 +49,7 @@ public class AddInterface {
 		JLabel CreditHoursL = new JLabel();
 		CreditHoursL.setText("Credits:");
 		CreditHoursL.setBounds(10, 150, 200, 100);
+		
 		// Credit Example Label
 		JLabel CreditEx = new JLabel();
 		CreditEx.setText("Example: 3");
@@ -78,7 +79,6 @@ public class AddInterface {
 		JLabel SubmitLabel = new JLabel();
 		SubmitLabel.setBounds(10, 350, 300, 100);
 
-		// Checkbox
 		JCheckBox PriorityCheck = new JCheckBox("Priority?");
 		PriorityCheck.setOpaque(false);
 		PriorityCheck.setBounds(10, 220, 100, 30);
@@ -100,6 +100,7 @@ public class AddInterface {
 			public void actionPerformed(ActionEvent arg0) {
 
 			}
+			
 		});
 		
 		// Submit listener

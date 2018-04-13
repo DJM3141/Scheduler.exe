@@ -7,8 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 public class DraftInterface {
 	
@@ -30,7 +28,6 @@ public class DraftInterface {
 		f.setIconImage(img.getImage());
 
 		// Application info Text
-		// May Need multiple for all info
 		JLabel AppInfo = new JLabel();
 		AppInfo.setText("Scheduler.exe");
 		AppInfo.setBounds(370, 50, 500, 200);

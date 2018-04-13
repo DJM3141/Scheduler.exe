@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/*
+ *  This file is used for testing the scheduler and generating test schedules.
+ */
+
 public class Test {
 	public static void main(String[] args) {
 		ArrayList<course> testCourseList1 = new ArrayList<course>();

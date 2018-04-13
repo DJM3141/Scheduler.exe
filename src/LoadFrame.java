@@ -1,4 +1,3 @@
-import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,8 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 public class LoadFrame {
 	LoadFrame() {
@@ -24,7 +21,6 @@ public class LoadFrame {
 		f.setIconImage(img.getImage());
 
 		// Classes already added Text
-		// May Need multiple for all info
 		JLabel ClassInfo = new JLabel();
 		ClassInfo.setText("Classes Added");
 		ClassInfo.setBounds(335, 50, 500, 200);
@@ -58,7 +54,7 @@ public class LoadFrame {
 		JButton Add = new JButton("Add");
 		Add.setBounds(200, 550, 140, 40);
 
-		// Add label which will show event after button clicked
+		// Add label
 		JLabel AddLabel = new JLabel();
 		AddLabel.setBounds(10, 500, 100, 100);
 
@@ -70,7 +66,7 @@ public class LoadFrame {
 		JButton Display = new JButton("Display");
 		Display.setBounds(300, 600, 140, 40);
 
-		// Display label which will show event after button clicked
+		// Display label
 		JLabel DisplayLabel = new JLabel();
 		DisplayLabel.setBounds(10, 650, 300, 100);
 

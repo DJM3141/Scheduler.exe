@@ -1,26 +1,15 @@
-
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import javax.swing.JCheckBox;
 
 public class OfferingsInterface {
@@ -40,7 +29,7 @@ public class OfferingsInterface {
 		ImageIcon img = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("dog1.png.png")));
 		f.setIconImage(img.getImage());
 		
-		// Class
+		// Offerings Label
 		JLabel OfferingsL = new JLabel();
 		OfferingsL.setText("Offerings");
 		OfferingsL.setBounds(10, 10, 200, 100);
@@ -50,6 +39,7 @@ public class OfferingsInterface {
 		JLabel CRNL = new JLabel();
 		CRNL.setText("CRN :");
 		CRNL.setBounds(10, 50, 200, 100);
+		
 		// CRN Example Label
 		JLabel CRNEx = new JLabel();
 		CRNEx.setText("Example: 27364");
@@ -95,6 +85,7 @@ public class OfferingsInterface {
 		JLabel StartTimeL = new JLabel();
 		StartTimeL.setText("Start Time:");
 		StartTimeL.setBounds(10, 140, 200, 100);
+		
 		// Start Example Label
 		JLabel StartEx = new JLabel();
 		StartEx.setText("Example: 1305");
@@ -105,6 +96,7 @@ public class OfferingsInterface {
 		JLabel EndTimeL = new JLabel();
 		EndTimeL.setText("End Time:");
 		EndTimeL.setBounds(10, 180, 200, 100);
+		
 		// End Example Label
 		JLabel EndEx = new JLabel();
 		EndEx.setText("Example: 1355");
@@ -192,6 +184,7 @@ public class OfferingsInterface {
 						getDaysList()
 						);
 				
+				// Clears out the current entries in the input boxes and fields
 				bg.setSelected(noneSelected.getModel(), true);;
 				CRNLB.setText("");
 				StartTimeLB.setText("");
@@ -206,6 +199,7 @@ public class OfferingsInterface {
 				ThursdayCheck.setSelected(false);
 				FridayCheck.setSelected(false);
 				SaturdayCheck.setSelected(false);
+				
 			}
 		});
 		// Sunday listener

@@ -1,17 +1,16 @@
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 public class DisplayInterface {
 	
+	// Gets the preferred credits number for creating schedules
 	public static double userMaxCredits = 0;
 	
 	public static double getUserMaxCredits() {
@@ -32,7 +31,6 @@ public class DisplayInterface {
 		// Credit Box
 		JTextField MaxCreditLB = new JTextField();
 		MaxCreditLB.setBounds(325, 180, 80, 30);
-		JLabel MaxCreditL = new JLabel();
 
 		// Continue button
 		JButton Continue = new JButton("Continue");

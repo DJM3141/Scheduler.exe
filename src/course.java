@@ -2,8 +2,6 @@ import java.util.ArrayList;
 
 /**
  * Course object
- * @author jmerc
- *
  */
 
 public class course {

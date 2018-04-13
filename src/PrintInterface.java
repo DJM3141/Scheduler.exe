@@ -1,21 +1,16 @@
 
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 public class PrintInterface {
 	PrintInterface() {
@@ -99,7 +94,7 @@ public class PrintInterface {
 				}
 				pw.println();
 				
-				pw.println("Available Offerings");
+				pw.println("Available Non-Priority Courses");
 				for (int index = 0; index < finalData.get(scheduleNumber).getFillerList().size(); index++) {
 					pw.println(finalData.get(scheduleNumber).getFillerList().get(index).getDepartment() + finalData.get(scheduleNumber).getFillerList().get(index).getLevel()
 							+ "     " + finalData.get(scheduleNumber).getFillerList().get(index).getStartTime() + " - "
@@ -107,7 +102,7 @@ public class PrintInterface {
 				}
 				pw.println();
 				
-				pw.println("CRNS For This Schedule:");
+				pw.println("CRNS For Priority Classes in This Schedule:");
 				for (int i = 0; i < crns.size(); i++) {
 					pw.println(crns.get(i));
 				}
@@ -150,7 +145,7 @@ public class PrintInterface {
 			}
 			courseList = courseList + "\n\n";
 			
-			courseList = courseList + "Available Offerings\n";
+			courseList = courseList + "Available Non-Priority Courses\n";
 			for (int index = 0; index < finalData.get(scheduleNumber).getFillerList().size(); index++) {
 				courseList = courseList + finalData.get(scheduleNumber).getFillerList().get(index).getDepartment() + finalData.get(scheduleNumber).getFillerList().get(index).getLevel()
 						+ "     " + finalData.get(scheduleNumber).getFillerList().get(index).getStartTime() + " - "

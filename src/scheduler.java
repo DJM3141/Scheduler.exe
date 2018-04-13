@@ -1,10 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * 
- * @author jmerc
- *
- */
 public class scheduler {
 	// Variables
 	ArrayList<schedule> schedules = new ArrayList<schedule>();

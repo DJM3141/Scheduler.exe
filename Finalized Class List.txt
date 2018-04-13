@@ -1,0 +1,44 @@
+******************************************************************************************
+            			Scheduler.exe was developed by:
+            			Matt L., Joell E., and Dan R.
+
+
+This program was developed to help assist you in creating multiple schedules
+for you courses each semester. It takes into account your priority class/departmental
+and fills in any non priority classes if they fit.
+
+Each calendar printed out goes day by day and includes a list of the CRNS for easy use
+to register. Feel free to edit the text file and add semester names or class names.
+******************************************************************************************
+
+Schedule 1
+
+Sunday
+
+Monday
+CS3141      1305 - 1355
+CS3331      1405 - 1455
+
+Tuesday
+
+Wednesday
+CS3141      1305 - 1355
+CS3331      1405 - 1455
+
+Thursday
+
+Friday
+CS3141      1305 - 1355
+CS3331      1405 - 1455
+
+Saturday
+
+
+Available Offerings
+EC3400     805 - 855   CRN: 23486
+
+CRNS For This Schedule:
+12345
+43567
+
+
